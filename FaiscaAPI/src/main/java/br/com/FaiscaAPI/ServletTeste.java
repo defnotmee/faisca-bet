@@ -1,6 +1,8 @@
 package br.com.FaiscaAPI;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,7 +28,12 @@ public class ServletTeste extends HttpServlet {
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("Funcionou!");
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		String nome = request.getParameter("nome");
+		System.out.println("Funcionou! Recebiii " + nome );
+		PrintWriter pr = response.getWriter();
+		pr.println(String.format("{\"nome\": \"%s\"}",nome));	
 	}
 
 }
