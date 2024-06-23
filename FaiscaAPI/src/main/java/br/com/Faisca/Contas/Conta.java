@@ -1,5 +1,6 @@
 package br.com.Faisca.Contas;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
@@ -7,8 +8,9 @@ import java.security.NoSuchAlgorithmException;
 
 import br.com.Faisca.Jogo.Gerador;
 
-public abstract class Conta {
+public abstract class Conta implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
 	final private String nome;
 	private byte[] hashSenha;
 	final private Long id;

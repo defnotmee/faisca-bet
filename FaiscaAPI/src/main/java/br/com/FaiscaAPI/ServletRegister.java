@@ -1,6 +1,8 @@
 package br.com.FaiscaAPI;
-
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.regex.Pattern;
 
 import javax.servlet.ServletException;
@@ -88,7 +90,20 @@ public class ServletRegister extends HttpServlet {
 		Conta novaConta = new User(nome,email,senha,cpf);
 		
 		System.out.printf("Conta criada com sucesso! Informação da conta: %s\n", ((User) novaConta).toString());
+		System.out.println(request.getContextPath());
+		String path = getServletContext().getRealPath("");
 		
+		System.out.println(path);
+		
+		FileOutputStream fileOutputStream
+			= new FileOutputStream(path + "/teste.txt");
+		ObjectOutputStream objectOutputStream 
+			= new ObjectOutputStream(fileOutputStream);
+		objectOutputStream.writeObject(novaConta);
+		objectOutputStream.flush();
+		objectOutputStream.close();
+		System.out.println("Working Directory = " + System.getProperty("user.dir"));
+
 		response.getWriter().print(novaConta.getId());
 	}
 

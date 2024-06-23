@@ -14,7 +14,7 @@ PARAMS = {"nome": name, "email": email, "senha" : password}
 if(cpf != ""):
     PARAMS["cpf"] = cpf
 
-print(PARAMS)
+print("request: " + str(PARAMS))
 x = requests.post(url = URL, params = PARAMS)
 print(x.status_code)
 print(x.content.decode())

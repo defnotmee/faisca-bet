@@ -1,9 +1,11 @@
 package br.com.Faisca.Contas;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class User extends Conta {
+public class User extends Conta implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
 	private boolean firstDeposit;
 	private BigDecimal qtdBonus, qtdDeposit;
 	private String cpf;
