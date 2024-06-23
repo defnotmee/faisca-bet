@@ -14,6 +14,7 @@ import br.com.Faisca.Contas.*;
 /**
  * Recebe POST request com os seguintes parâmetros:
  * nome: nome do usuário
+ * email: email do usuário
  * senha: senha do usuário
  * cpf (opicional): cpf do usuário (só será necessário cpf para sacar :)
  */
