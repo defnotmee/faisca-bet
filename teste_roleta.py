@@ -9,7 +9,7 @@ bet = input("insira a aposta para \"" + URL + "\":")
 while(True):
     escolha = input("insira cor para \"" + URL + "\":")
 
-    if(escolha == -1):
+    if(escolha == "-1"):
         break
 
     PARAMS = {"nome": name, "bet" : bet, "choice": escolha}

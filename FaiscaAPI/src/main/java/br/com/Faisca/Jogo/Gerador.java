@@ -26,4 +26,8 @@ public class Gerador {
 			return RoletaRes.VERMELHO;
 		return RoletaRes.BRANCO;
 	}
+	
+	public Long genId() {
+		return rng.nextLong();
+	}
 }
