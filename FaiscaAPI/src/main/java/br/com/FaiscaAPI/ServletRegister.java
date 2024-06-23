@@ -1,6 +1,8 @@
 package br.com.FaiscaAPI;
 
 import java.io.IOException;
+import java.util.regex.Pattern;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,37 +29,62 @@ public class ServletRegister extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	private boolean validateEmail(String email) {
+		String regexPattern = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@" 
+        + "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$";
+
+		return Pattern.compile(regexPattern).matcher(email).matches();
+	}
+
+	private boolean validateCpf(String cpf) {
+		return ValidaCPF.isCPF(cpf);
+	}
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setCharacterEncoding("UTF-8");
 		
 		String nome = request.getParameter("nome");
+		String email = request.getParameter("email");
 		String senha = request.getParameter("senha");
 		String cpf = request.getParameter("cpf");
 		if(nome == null) {
 			System.err.println("Usuário não colocou nome para registrar.");
-			response.sendError(HttpServletResponse.SC_BAD_REQUEST);
+			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+			response.getWriter().print("Sem nome.");
+			return;
+		}
+		
+		if(email == null) {
+			System.err.println("Usuário não colocou email para registrar.");
+			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+			response.getWriter().print("Sem email.");
+			return;
+		}
+		
+		if(!validateEmail(email)) {
+			System.err.println("Usuário colocou email inválido.");
+			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+			response.getWriter().print("Email inválido");
 			return;
 		}
 		
 		if(senha == null) {
 			System.err.println("Usuário não colocou senha para registrar.");
-			response.sendError(HttpServletResponse.SC_BAD_REQUEST);
+			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+			response.getWriter().print("Sem senha.");
 			return;
 		}
 		
 		if(cpf != null) {
-			if(!ValidaCPF.isCPF(cpf)) {
+			if(!validateCpf(cpf)) {
 				System.err.println("Usuário colocou cpf inválido.");
-				response.sendError(HttpServletResponse.SC_BAD_REQUEST);
+				response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+				response.getWriter().print("CPF inválido.");
 				return;
 			}
 		}
 		
-		response.setCharacterEncoding("UTF-8");
-		
-		Conta novaConta = new User(nome,senha,cpf);
+		Conta novaConta = new User(nome,email,senha,cpf);
 		
 		System.out.printf("Conta criada com sucesso! Informação da conta: %s\n", ((User) novaConta).toString());
 		

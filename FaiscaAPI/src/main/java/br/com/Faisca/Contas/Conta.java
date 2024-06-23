@@ -42,11 +42,20 @@ public abstract class Conta {
 	}
 	
 	public abstract void applyDelta(BigDecimal delta);
+
 	
 	public abstract void deposit(BigDecimal ammount);
 	
 	public Long getId() {
 		return this.id;
 	}
-	
+
+	protected String getNome() {
+		return this.nome;
+	}
+
+	protected byte[] getHashSenha() {
+		return this.hashSenha;
+	}
+
 }

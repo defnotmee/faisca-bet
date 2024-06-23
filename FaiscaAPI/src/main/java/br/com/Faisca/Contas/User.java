@@ -7,18 +7,20 @@ public class User extends Conta {
 	private boolean firstDeposit;
 	private BigDecimal qtdBonus, qtdDeposit;
 	private String cpf;
+	private String email;
 	
 	
-	public User(String nome, String senha, String cpf) {
+	public User(String nome, String email, String senha, String cpf) {
 		super(nome, senha);
 		firstDeposit = true;
+		this.email = email;
 		qtdBonus = new BigDecimal(0);
 		qtdDeposit = new BigDecimal(0);
 		this.cpf = cpf;
 	}
 
 	public boolean isBonusAvailable(){
-		return firstDeposit;
+		return isFirstDeposit();
 	}
 
 	@Override
@@ -32,11 +34,9 @@ public class User extends Conta {
 			qtdDeposit = qtdDeposit.add(delta);
 		} else {
 			BigDecimal minusDeposit = delta.min(qtdDeposit);
-			qtdDeposit = qtdDeposit.subtract(minusDeposit);
+			setQtdDeposit(qtdDeposit.subtract(minusDeposit));
 			delta = delta.subtract(minusDeposit);
-			
-			qtdBonus = qtdBonus.subtract(delta);
-			
+			setQtdBonus(qtdBonus.subtract(delta));
 		}
 
 	}
@@ -53,10 +53,61 @@ public class User extends Conta {
 	@Override
 	public String toString() {
 		return "{" +
-			" firstDeposit='" + firstDeposit + "'" +
-			", qtdBonus='" + qtdBonus + "'" +
-			", qtdDeposit='" + qtdDeposit + "'" +
-			", cpf='" + ValidaCPF.imprimeCPF(cpf) + "'" +
+			"nome='" + super.getNome() + "'" +
+			", email='" + getEmail() + "'" +
+			", hashSenha='" + super.getHashSenha() + "'" +
+			", accountId='" + super.getId() + "'" +
+			", firstDeposit='" + isFirstDeposit() + "'" +
+			", qtdBonus='" + getQtdBonus() + "'" +
+			", qtdDeposit='" + getQtdDeposit() + "'" +
+			", cpf='" + getCpf() + "'" +
 			"}";
 	}
+
+	private boolean isFirstDeposit() {
+		return this.firstDeposit;
+	}
+
+	private boolean getFirstDeposit() {
+		return this.firstDeposit;
+	}
+
+	private void setFirstDeposit(boolean firstDeposit) {
+		this.firstDeposit = firstDeposit;
+	}
+
+	private BigDecimal getQtdBonus() {
+		return this.qtdBonus;
+	}
+
+	private void setQtdBonus(BigDecimal qtdBonus) {
+		this.qtdBonus = qtdBonus;
+	}
+
+	private BigDecimal getQtdDeposit() {
+		return this.qtdDeposit;
+	}
+
+	private void setQtdDeposit(BigDecimal qtdDeposit) {
+		this.qtdDeposit = qtdDeposit;
+	}
+
+	private String getCpf() {
+		if(this.cpf == null)
+			return "null";
+		return ValidaCPF.imprimeCPF(this.cpf);
+	}
+
+	private void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+	private String getEmail() {
+		return this.email;
+	}
+
+	private void setEmail(String email) {
+		this.email = email;
+	}
+
 }
