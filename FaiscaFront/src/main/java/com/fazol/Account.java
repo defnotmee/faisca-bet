@@ -12,8 +12,8 @@ public class Account {
     boolean bonusAvailable;
     int balance;
     
-    Account Account(String json){
-        final JsonNode node = new ObjectMapper().readTree(json);
+    //Account Account(String json){
+    //    final JsonNode node = new ObjectMapper().readTree(json);
 
-    }
+    
 }
