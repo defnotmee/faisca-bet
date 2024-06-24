@@ -1,6 +1,13 @@
-/home/borts/UNICHAMPIONS/MC322/FAISCAS TENTATIVAS/repo-faisca/faisca-bet/FaiscaFront/src/main/java/com/fazol/Requester/Requester.java
-/home/borts/UNICHAMPIONS/MC322/FAISCAS TENTATIVAS/repo-faisca/faisca-bet/FaiscaFront/src/main/java/com/fazol/signInController.java
-/home/borts/UNICHAMPIONS/MC322/FAISCAS TENTATIVAS/repo-faisca/faisca-bet/FaiscaFront/src/main/java/module-info.java
-/home/borts/UNICHAMPIONS/MC322/FAISCAS TENTATIVAS/repo-faisca/faisca-bet/FaiscaFront/src/main/java/com/fazol/loginController.java
-/home/borts/UNICHAMPIONS/MC322/FAISCAS TENTATIVAS/repo-faisca/faisca-bet/FaiscaFront/src/main/java/com/fazol/Requester/RequesterLogin.java
-/home/borts/UNICHAMPIONS/MC322/FAISCAS TENTATIVAS/repo-faisca/faisca-bet/FaiscaFront/src/main/java/com/fazol/App.java
+/Users/luanaamorim/Desktop/322/faisca-bet/FaiscaFront/src/main/java/com/fazol/Requester/RException/PermissionException.java
+/Users/luanaamorim/Desktop/322/faisca-bet/FaiscaFront/src/main/java/com/fazol/loginController.java
+/Users/luanaamorim/Desktop/322/faisca-bet/FaiscaFront/src/main/java/com/fazol/Requester/RException/UserNotFoundException.java
+/Users/luanaamorim/Desktop/322/faisca-bet/FaiscaFront/src/main/java/com/fazol/Requester/RException/InvalidCpfException.java
+/Users/luanaamorim/Desktop/322/faisca-bet/FaiscaFront/src/main/java/com/fazol/Requester/RException/InvalidEmailException.java
+/Users/luanaamorim/Desktop/322/faisca-bet/FaiscaFront/src/main/java/com/fazol/App.java
+/Users/luanaamorim/Desktop/322/faisca-bet/FaiscaFront/src/main/java/com/fazol/registerController.java
+/Users/luanaamorim/Desktop/322/faisca-bet/FaiscaFront/src/main/java/module-info.java
+/Users/luanaamorim/Desktop/322/faisca-bet/FaiscaFront/src/main/java/com/fazol/Requester/RequesterRegister.java
+/Users/luanaamorim/Desktop/322/faisca-bet/FaiscaFront/src/main/java/com/fazol/roletinhaController.java
+/Users/luanaamorim/Desktop/322/faisca-bet/FaiscaFront/src/main/java/com/fazol/homeController.java
+/Users/luanaamorim/Desktop/322/faisca-bet/FaiscaFront/src/main/java/com/fazol/Requester/RequesterLogin.java
+/Users/luanaamorim/Desktop/322/faisca-bet/FaiscaFront/src/main/java/com/fazol/Requester/Requester.java

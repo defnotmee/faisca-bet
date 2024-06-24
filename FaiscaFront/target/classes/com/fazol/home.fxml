@@ -10,55 +10,67 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="441.0" prefWidth="700.0" style="-fx-background-color: #063457; -fx-background-radius: 0;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1960.0" style="-fx-background-color: #063457; -fx-background-radius: 0;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fazol.homeController">
    <children>
-      <AnchorPane layoutX="-8.0" prefHeight="442.0" prefWidth="138.0" style="-fx-background-color: #436894;">
+      <AnchorPane layoutX="-8.0" prefHeight="1086.0" prefWidth="421.0" style="-fx-background-color: #436894;">
          <children>
-            <AnchorPane layoutX="6.0" prefHeight="122.0" prefWidth="142.0">
+            <AnchorPane layoutX="6.0" prefHeight="374.0" prefWidth="411.0">
                <children>
-                  <ImageView fitHeight="87.0" fitWidth="94.0" layoutX="22.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="281.0" fitWidth="330.0" layoutX="61.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/UserIcon.png" />
                      </image>
                   </ImageView>
-                  <Text fx:id="username" layoutX="40.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="username" />
+                  <Text fx:id="username" layoutX="115.0" layoutY="321.0" strokeType="OUTSIDE" strokeWidth="0.0" text="username">
+                     <font>
+                        <Font size="40.0" />
+                     </font></Text>
                </children></AnchorPane>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="9.0" layoutX="-29.0" layoutY="121.0" stroke="BLACK" strokeType="INSIDE" width="181.0" />
-            <Button fx:id="logOutButton" layoutX="29.0" layoutY="409.0" mnemonicParsing="false" onAction="#logOut" prefHeight="14.0" prefWidth="94.0" style="-fx-background-color: #436894;" text="Sair" />
-            <Text fx:id="Saldo" layoutX="29.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Saldo: " />
-            <Button fx:id="openConfigsButton" layoutX="29.0" layoutY="380.0" mnemonicParsing="false" onAction="#openConfig" prefHeight="14.0" prefWidth="94.0" style="-fx-background-color: #436894;" text="Configurações" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="35.0" layoutX="1.0" layoutY="350.0" stroke="BLACK" strokeType="INSIDE" width="419.0" />
+            <Button fx:id="logOutButton" layoutX="69.0" layoutY="988.0" mnemonicParsing="false" onAction="#logOut" prefHeight="79.0" prefWidth="261.0" style="-fx-background-color: #436894;" text="Sair">
+               <font>
+                  <Font size="39.0" />
+               </font></Button>
+            <Text fx:id="Saldo" layoutX="52.0" layoutY="454.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Saldo: " wrappingWidth="192.17302703857422">
+               <font>
+                  <Font size="40.0" />
+               </font></Text>
+            <Button fx:id="openConfigsButton" layoutX="22.0" layoutY="905.0" mnemonicParsing="false" onAction="#openConfig" prefHeight="82.0" prefWidth="354.0" style="-fx-background-color: #436894;" text="Configurações">
+               <font>
+                  <Font size="39.0" />
+               </font></Button>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="134.4" prefHeight="441.0" prefWidth="566.0" style="-fx-background-color: #063457;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="134.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane layoutX="410.4" prefHeight="1080.0" prefWidth="1550.0" style="-fx-background-color: #063457;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="410.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <effect>
             <InnerShadow />
          </effect>
          <children>
-            <ImageView fitHeight="414.0" fitWidth="254.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="1054.0" fitWidth="822.0" layoutX="67.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/M-Weapons-3size.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="414.0" fitWidth="254.0" layoutX="290.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="1057.0" fitWidth="658.0" layoutX="797.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/roletovsky.png" />
                </image>
             </ImageView>
-            <Text fill="#ffe5e5" layoutX="29.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="OLHA A BOMBA!">
+            <Text layoutX="925.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ROLETINHA">
                <font>
-                  <Font size="30.0" />
+                  <Font size="70.0" />
                </font>
             </Text>
-            <Text layoutX="339.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ROLETINHA">
+            <Text fill="#ffe5e5" layoutX="115.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="OLHA A BOMBA!" wrappingWidth="585.800048828125">
                <font>
-                  <Font size="30.0" />
+                  <Font size="70.0" />
                </font>
             </Text>
-            <Button fx:id="roletaButton" layoutX="290.0" layoutY="14.0" mnemonicParsing="false" onAction="#startRoleta" opacity="0.0" prefHeight="414.0" prefWidth="254.0" text="ROLETINHA">
+            <Button fx:id="roletaButton" layoutX="794.0" layoutY="24.0" mnemonicParsing="false" onAction="#startRoleta" opacity="0.0" prefHeight="1028.0" prefWidth="662.0" text="ROLETINHA">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <Button fx:id="bombaButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#startBomba" opacity="0.0" prefHeight="414.0" prefWidth="254.0" text="OLHA A BOMBA!">
+            <Button fx:id="bombaButton" layoutX="65.0" layoutY="10.0" mnemonicParsing="false" onAction="#startBomba" opacity="0.0" prefHeight="1058.0" prefWidth="647.0" text="OLHA A BOMBA!">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

@@ -1,5 +1,13 @@
 com/fazol/loginController.class
-com/fazol/Requester/Requester.class
-com/fazol/signInController.class
+com/fazol/roletinhaController.class
 com/fazol/App.class
+com/fazol/Requester/RequesterRegister.class
 com/fazol/Requester/RequesterLogin.class
+module-info.class
+com/fazol/homeController.class
+com/fazol/registerController.class
+com/fazol/Requester/RException/UserNotFoundException.class
+com/fazol/Requester/RException/InvalidEmailException.class
+com/fazol/Requester/RException/PermissionException.class
+com/fazol/Requester/RException/InvalidCpfException.class
+com/fazol/Requester/Requester.class
