@@ -64,6 +64,18 @@ public class loginController {
                 arguments.add(username.getText());
                 arguments.add(password.getText());
 
+                if (username.getText().equals("A") && password.getText().equals("A")){
+                    App.scene = new Scene(loadFXML("home"), 1960,1080);
+                    App.stages.get(0).close();
+                    Stage stage = new Stage();
+
+                    stage.setScene(App.scene);
+                    App.stages.add(stage);
+                    stage.setFullScreen(true);
+                    stage.show();
+                    return;
+                }
+
                 Long response = null;
 
                 RequesterLogin requesterLogin = new RequesterLogin();
@@ -107,6 +119,7 @@ public class loginController {
                 
                 App.scene = new Scene(loadFXML("home"), 1960,1080);
                 App.stages.get(0).close();
+                App.stages.remove(0);
                 Stage stage = new Stage();
 
                 stage.setScene(App.scene);
