@@ -76,18 +76,21 @@ public class loginController {
                     alert.setHeaderText("Usuário não encontrado");
                     alert.setContentText("Por favor, verifique se o email está correto");
                     alert.showAndWait();
+                    return;
                 } catch (InvalidEmailException e){
                     Alert alert = new Alert(AlertType.ERROR);
                     alert.setTitle("Erro");
                     alert.setHeaderText("Email inválido");
                     alert.setContentText("Por favor, verifique se o email está correto");
                     alert.showAndWait();
+                    return;
                 } catch (PermissionException e){
                     Alert alert = new Alert(AlertType.ERROR);
                     alert.setTitle("Erro");
                     alert.setHeaderText("Senha incorreta");
                     alert.setContentText("Por favor, verifique se a senha está correta");
                     alert.showAndWait();
+                    return;
                 }
                 
 
