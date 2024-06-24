@@ -47,7 +47,6 @@ public class ContasDAO {
 	
 	public Conta accessEmail(String email) throws FileNotFoundException, IOException {
 		List<Conta> cur = getSnapshot();
-		
 		for(Conta i : cur) {
 			if(i.getEmail().equals(email)){
 				return i;
