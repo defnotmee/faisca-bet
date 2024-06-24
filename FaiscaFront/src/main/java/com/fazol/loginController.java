@@ -4,9 +4,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fazol.Requester.RException.InvalidEmailException;
+import com.fazol.Requester.RException.PermissionException;
+import com.fazol.Requester.RException.UserNotFoundException;
 import com.fazol.Requester.RequesterLogin;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -14,9 +19,6 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -57,15 +59,37 @@ public class loginController {
             
             
                 // Send Request to server
-                List<String> arguments = new ArrayList<String>();
+                List<String> arguments = new ArrayList<>();
 
                 arguments.add(username.getText());
                 arguments.add(password.getText());
 
-                List<String> response = new ArrayList<String>();
+                Long response = null;
 
                 RequesterLogin requesterLogin = new RequesterLogin();
-                response = (List<String>) requesterLogin.makeRequest(arguments);
+
+                try{
+                    response = requesterLogin.makeRequest(arguments);
+                } catch (UserNotFoundException e){
+                    Alert alert = new Alert(AlertType.ERROR);
+                    alert.setTitle("Erro");
+                    alert.setHeaderText("Usuário não encontrado");
+                    alert.setContentText("Por favor, verifique se o email está correto");
+                    alert.showAndWait();
+                } catch (InvalidEmailException e){
+                    Alert alert = new Alert(AlertType.ERROR);
+                    alert.setTitle("Erro");
+                    alert.setHeaderText("Email inválido");
+                    alert.setContentText("Por favor, verifique se o email está correto");
+                    alert.showAndWait();
+                } catch (PermissionException e){
+                    Alert alert = new Alert(AlertType.ERROR);
+                    alert.setTitle("Erro");
+                    alert.setHeaderText("Senha incorreta");
+                    alert.setContentText("Por favor, verifique se a senha está correta");
+                    alert.showAndWait();
+                }
+                
 
                 if (response == null){
                     Alert alert = new Alert(AlertType.ERROR);
@@ -73,31 +97,9 @@ public class loginController {
                     alert.setHeaderText("Erro ao conectar com o servidor");
                     alert.setContentText("Por favor tente novamente mais tarde");
                     alert.showAndWait();
-                } else if (response.get(1).equals("400")){
-                    Alert alert = new Alert(AlertType.ERROR);
-                    alert.setTitle("Erro");
-                    alert.setHeaderText("Email inválido");
-                    alert.setContentText("Por favor, verifique se o email está correto");
-                    alert.showAndWait();
-                } else if (response.get(1).equals("401")){
-                    Alert alert = new Alert(AlertType.ERROR);
-                    alert.setTitle("Erro");
-                    alert.setHeaderText("Senha incorreta");
-                    alert.setContentText("Por favor, verifique se a senha está correta");
-                    alert.showAndWait();
-                } else if (response.get(1).equals("404")){
-                    Alert alert = new Alert(AlertType.ERROR);
-                    alert.setTitle("Erro");
-                    alert.setHeaderText("Usuário não encontrado");
-                    alert.setContentText("Por favor, verifique se o email está correto");
-                    alert.showAndWait();
-                } else if (response.get(1).equals("200")){
-                    App.id = Long.parseLong(response.get(0));
+                    return;
                 }
-
-                // If server returns true
-                // App.setRoot("home");
-
+                App.userId = response;
 
                 
                 App.scene = new Scene(loadFXML("home"), 1960,1080);

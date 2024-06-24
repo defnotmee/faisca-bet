@@ -1,9 +1,15 @@
 package com.fazol.Requester;
 
+import java.io.IOException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Map;
+
+import com.fazol.Requester.RException.InvalidCpfException;
+import com.fazol.Requester.RException.InvalidEmailException;
+import com.fazol.Requester.RException.PermissionException;
+import com.fazol.Requester.RException.UserNotFoundException;
 
 public abstract class Requester{
     
@@ -20,6 +26,7 @@ public abstract class Requester{
         return formBodyBuilder.toString();
     }
 
-    public abstract Object makeRequest(List<String> arguments);
+    public abstract Object makeRequest(List<String> arguments) throws InvalidEmailException, 
+    PermissionException, UserNotFoundException, InvalidCpfException, IOException;
 
 }

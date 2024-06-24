@@ -32,7 +32,6 @@ public class ServletLogin extends FaiscaServlet {
 		String email = request.getParameter("email");
 		String senha = request.getParameter("senha");
 		
-		
 		if(email == null) {
 			System.err.println("Usuário não colocou email para registrar.");
 			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
@@ -43,7 +42,7 @@ public class ServletLogin extends FaiscaServlet {
 		if(!Validator.validateEmail(email)) {
 			System.err.println("Usuário colocou email inválido.");
 			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-			response.getWriter().print("Email inválido");
+			response.getWriter().print("Email invál	ido");
 			return;
 		}
 		

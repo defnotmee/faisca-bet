@@ -1,18 +1,24 @@
 package com.fazol;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.fazol.Requester.RException.InvalidCpfException;
+import com.fazol.Requester.RException.InvalidEmailException;
+import com.fazol.Requester.RException.PermissionException;
+import com.fazol.Requester.RException.UserNotFoundException;
+import com.fazol.Requester.RequesterRegister;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.stage.Popup;
 
-public class signInController {
+public class registerController {
     
     @FXML
     private TextField CPF;
@@ -64,11 +70,45 @@ public class signInController {
             alert.setContentText("Por favor, verifique se as senhas correspondem");
             alert.showAndWait();
         } else {
-            //request
-            //if success
-            //go to login and popup alert message with congratulations
-            //else
-            //popup alert message with what went wrong
+            List<String> arguments = new ArrayList<>();
+            arguments.add(username);
+            arguments.add(email);
+            arguments.add(password);
+            arguments.add(cpf);
+    
+            RequesterRegister requesterRegister = new RequesterRegister();
+
+            Long response = null;
+
+            try{
+                response = requesterRegister.makeRequest(arguments);
+            } catch (UserNotFoundException e){
+                Alert alert = new Alert(AlertType.ERROR);
+                alert.setTitle("Erro");
+                alert.setHeaderText("Usuário não encontrado");
+                alert.setContentText("Por favor, verifique se o email está correto");
+                alert.showAndWait();
+            } catch (InvalidEmailException e){
+                Alert alert = new Alert(AlertType.ERROR);
+                alert.setTitle("Erro");
+                alert.setHeaderText("Email inválido");
+                alert.setContentText("Por favor, verifique se o email está correto");
+                alert.showAndWait();
+            } catch (InvalidCpfException e){
+                Alert alert = new Alert(AlertType.ERROR);
+                alert.setTitle("Erro");
+                alert.setHeaderText("CPF inválido");
+                alert.setContentText("Por favor, verifique se o CPF está correto");
+                alert.showAndWait();
+            } catch (PermissionException e){
+                Alert alert = new Alert(AlertType.ERROR);
+                alert.setTitle("Erro");
+                alert.setHeaderText("Senha incorreta");
+                alert.setContentText("Por favor, verifique se a senha está correta");
+                alert.showAndWait();
+            }
+
+            App.userId = response;
         }
     }
 
