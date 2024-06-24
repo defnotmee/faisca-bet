@@ -1,5 +1,4 @@
 com/fazol/loginController.class
-module-info.class
 com/fazol/Requester/Requester.class
 com/fazol/signInController.class
 com/fazol/App.class

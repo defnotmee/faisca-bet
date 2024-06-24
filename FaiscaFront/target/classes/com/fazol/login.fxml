@@ -12,11 +12,11 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="441.0" prefWidth="700.0" style="-fx-background-color: #1c1b1c;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fazol.loginController">
    <children>
       <PasswordField fx:id="password" layoutX="475.0" layoutY="296.0" promptText="Senha" />
-      <Button layoutX="490.0" layoutY="333.0" mnemonicParsing="false" onAction="#tentarLogin" prefWidth="118.0" text="login" textAlignment="CENTER" />
+      <Button fx:id="loginButton" layoutX="490.0" layoutY="333.0" mnemonicParsing="false" onAction="#tentarLogin" prefWidth="118.0" text="Entrar" textAlignment="CENTER" />
       <TextField fx:id="username" layoutX="475.0" layoutY="266.0" promptText="Usuário" />
       <Text fill="#fc0303" layoutX="262.0" layoutY="406.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seu usuário não foi encontrado" visible="false" />
       <Text fill="#fc0303" layoutX="305.0" layoutY="406.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Senha Incorreta" visible="false" />
-      <Button fx:id="signInButton" layoutX="522.0" layoutY="367.0" mnemonicParsing="false" onAction="#signIn" text="Sign-In" />
+      <Button fx:id="signInButton" layoutX="510.0" layoutY="367.0" mnemonicParsing="false" onAction="#signIn" text="Registrar-se" />
       <ImageView fx:id="LOGO" fitHeight="449.0" fitWidth="449.0" layoutX="-34.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/logo_faisca.png" />
