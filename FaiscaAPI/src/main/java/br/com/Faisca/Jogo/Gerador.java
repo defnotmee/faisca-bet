@@ -1,16 +1,16 @@
 package br.com.Faisca.Jogo;
-import java.util.Random;
-
 import br.com.Faisca.Jogo.Roleta.RoletaRes;
+import org.apache.commons.rng.UniformRandomProvider;
+import org.apache.commons.rng.simple.RandomSource;
 
 public class Gerador {
 	
 	private static final Gerador instance = new Gerador();
 	
-	private Random rng;
-	
+	private UniformRandomProvider rng;
+
 	private Gerador(){
-		rng = new Random();
+		rng = RandomSource.XO_RO_SHI_RO_128_PP.create();
 	}
 	
 	public static Gerador getInstance() {
@@ -27,6 +27,14 @@ public class Gerador {
 		return RoletaRes.BRANCO;
 	}
 	
+	public double genFoguete(){
+		if(rng.nextInt(100) < 5)
+			return 1;
+
+		double y = rng.nextDouble(0,1);
+		return 1/(1-y);
+	}
+
 	public Long genId() {
 		return rng.nextLong();
 	}

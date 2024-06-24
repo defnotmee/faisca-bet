@@ -24,11 +24,16 @@ public class ServletPersist extends FaiscaServlet {
         super();
         // TODO Auto-generated constructor stub
     }
+    
+    
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("Working Directory = " + System.getProperty("user.dir"));
+	    System.out.println(getDataPath());
+		
 		String senha = request.getParameter("senha");
 		
 		if(senha.equals("FelipeNetoOCara")) {
@@ -36,6 +41,7 @@ public class ServletPersist extends FaiscaServlet {
 		} else {
 			response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
 		}
+		
 			
 	}
 

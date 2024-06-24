@@ -13,7 +13,6 @@ public class ContasDAO {
 	List<Conta> snapshot;
 	
 	private ContasDAO(String path) {
-		System.err.println("Meu path é " + path);
 		this.path = path;
 	}
 	

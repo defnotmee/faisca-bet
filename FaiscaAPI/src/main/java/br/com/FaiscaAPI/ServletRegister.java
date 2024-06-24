@@ -87,6 +87,7 @@ public class ServletRegister extends FaiscaServlet {
 		
 		System.out.printf("Conta criada com sucesso! Informação da conta: %s\n", ((User) novaConta).toString());
 		
+		ContasDAO.getInstance(getDataPath()).persist();
 
 		response.getWriter().print(novaConta.getId());
 	}
