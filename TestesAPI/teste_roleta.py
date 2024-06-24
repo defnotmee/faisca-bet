@@ -1,20 +1,20 @@
-# Lê um nome da entrada e faz a request para o servidor teste
+# Lê id, senha secreta e quantidade para fazer deposito
 
 import requests
-import json
-URL = "http://localhost:8080/faisca-api/teste"
-name = input("insira nome para \"" + URL + "\":")
-bet = input("insira a aposta para \"" + URL + "\":")
+URL = "http://localhost:8080/faisca-api/jogos/roleta"
 
-while(True):
-    escolha = input("insira cor para \"" + URL + "\":")
+PARAMS = dict()
 
-    if(escolha == "-1"):
-        break
+def readParam(param):
+    cur = input("insira " + param + " para  \"" + URL + "\":")
+    PARAMS[param] = cur
 
-    PARAMS = {"nome": name, "bet" : bet, "choice": escolha}
+readParam("id")
+readParam("cor")
+readParam("valor")
 
-    x = requests.get(url = URL, params = PARAMS)
-    print(x.content.decode())
-    # print(json.loads(x.content.decode()))
-    print(x.status_code)
+print("request: " + str(PARAMS))
+x = requests.post(url = URL, params = PARAMS)
+print(x.status_code)
+print(x.content.decode())
+# print(json.loads(x.content.decode()))

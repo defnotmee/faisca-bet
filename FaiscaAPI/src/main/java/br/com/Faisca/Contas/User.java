@@ -35,6 +35,7 @@ public class User extends Conta implements Serializable{
 		if(delta.compareTo(new BigDecimal(0)) >= 0) {
 			qtdDeposit = qtdDeposit.add(delta);
 		} else {
+			delta = delta.multiply(new BigDecimal(-1));
 			BigDecimal minusDeposit = delta.min(qtdDeposit);
 			setQtdDeposit(qtdDeposit.subtract(minusDeposit));
 			delta = delta.subtract(minusDeposit);

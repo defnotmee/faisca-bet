@@ -69,6 +69,8 @@ public class ServletDeposit extends FaiscaServlet {
 		} else {
 			response.getWriter().print("Depósito realizado sem bônus.");
 		}
+		
+		ContasDAO.getInstance(getContaPath()).persist();
 			
 	}
 
