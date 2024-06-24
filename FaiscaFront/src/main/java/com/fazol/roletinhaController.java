@@ -1,8 +1,11 @@
 package com.fazol;
 
 import java.net.URL;
+import java.time.Duration;
 import java.util.ResourceBundle;
 
+import javafx.animation.Interpolator;
+import javafx.animation.RotateTransition;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,9 +19,12 @@ public class roletinhaController implements Initializable
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1)
 	{
-		TranslateTransition translate = new TranslateTransition();
-		translate.setNode(myImage);
-		translate.setByX(250);
-		translate.play();
+		RotateTransition rotate = new RotateTransition();
+		rotate.setNode(myImage);
+		rotate.setByAngle(360);
+		rotate.setInterpolator(Interpolator.LINEAR);
+		rotate.setCycleCount(10);
+		rotate.setDuration(Duration.millis(1000));
+		rotate.play();
 	}
 }
