@@ -8,7 +8,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 
-public class testeRegister{
+public class testeLogin{
 
 
     private static String getFormDataAsString(Map<String, String> formData) {
@@ -29,12 +29,10 @@ public class testeRegister{
 
         Map<String,String> mp = new HashMap<>();
 
-        mp.put("nome", "Leo");
         mp.put("email", "douglas@bibibo.com");
         mp.put("senha", "pipippipooo");
-        mp.put("cpf", "43759625851");
 
-        String serviceUrl = "http://localhost:8080/faisca-api/register";
+        String serviceUrl = "http://localhost:8080/faisca-api/login";
             
         HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create(serviceUrl))

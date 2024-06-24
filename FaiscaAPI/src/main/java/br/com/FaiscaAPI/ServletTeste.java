@@ -16,7 +16,7 @@ import br.com.Faisca.Jogo.Roleta;
  * Servlet implementation class ServletTeste
  */
 @WebServlet("/teste")
-public class ServletTeste extends HttpServlet {
+public class ServletTeste extends FaiscaServlet {
 	private static final long serialVersionUID = 1L;
        
     /**

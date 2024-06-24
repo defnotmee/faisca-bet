@@ -70,14 +70,6 @@ public class User extends Conta implements Serializable{
 		return this.firstDeposit;
 	}
 
-	private boolean getFirstDeposit() {
-		return this.firstDeposit;
-	}
-
-	private void setFirstDeposit(boolean firstDeposit) {
-		this.firstDeposit = firstDeposit;
-	}
-
 	private BigDecimal getQtdBonus() {
 		return this.qtdBonus;
 	}
@@ -93,18 +85,24 @@ public class User extends Conta implements Serializable{
 	private void setQtdDeposit(BigDecimal qtdDeposit) {
 		this.qtdDeposit = qtdDeposit;
 	}
-
+	
+	public static String imprimeCPF(String CPF) {
+        return(CPF.substring(0, 3) + "." + CPF.substring(3, 6) + "." +
+        CPF.substring(6, 9) + "-" + CPF.substring(9, 11));
+    }
+	
 	private String getCpf() {
 		if(this.cpf == null)
 			return "null";
-		return ValidaCPF.imprimeCPF(this.cpf);
+		return User.imprimeCPF(this.cpf);
 	}
 
 	private void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 
-	private String getEmail() {
+	@Override
+	public String getEmail() {
 		return this.email;
 	}
 

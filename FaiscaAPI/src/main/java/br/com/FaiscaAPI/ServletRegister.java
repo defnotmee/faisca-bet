@@ -1,9 +1,7 @@
 package br.com.FaiscaAPI;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
-import java.util.regex.Pattern;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,7 +19,7 @@ import br.com.Faisca.Contas.*;
  * cpf (opicional): cpf do usuário (só será necessário cpf para sacar :)
  */
 @WebServlet("/register")
-public class ServletRegister extends HttpServlet {
+public class ServletRegister extends FaiscaServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -32,17 +30,6 @@ public class ServletRegister extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	private boolean validateEmail(String email) {
-		String regexPattern = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@" 
-        + "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$";
-
-		return Pattern.compile(regexPattern).matcher(email).matches();
-	}
-
-	private boolean validateCpf(String cpf) {
-		return ValidaCPF.isCPF(cpf);
-	}
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setCharacterEncoding("UTF-8");
 		
@@ -64,7 +51,7 @@ public class ServletRegister extends HttpServlet {
 			return;
 		}
 		
-		if(!validateEmail(email)) {
+		if(!Validator.validateEmail(email)) {
 			System.err.println("Usuário colocou email inválido.");
 			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 			response.getWriter().print("Email inválido");
@@ -79,7 +66,7 @@ public class ServletRegister extends HttpServlet {
 		}
 		
 		if(cpf != null) {
-			if(!validateCpf(cpf)) {
+			if(!Validator.validateCpf(cpf)) {
 				System.err.println("Usuário colocou cpf inválido.");
 				response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 				response.getWriter().print("CPF inválido.");
@@ -87,22 +74,19 @@ public class ServletRegister extends HttpServlet {
 			}
 		}
 		
+		if(ContasDAO.getInstance(getDataPath()).accessEmail(email) != null) {
+			System.err.println("Usuário tentou criar conta com email existente");
+			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+			response.getWriter().print("Email já existe");
+			return;
+		}
+		
 		Conta novaConta = new User(nome,email,senha,cpf);
 		
+		ContasDAO.getInstance(getDataPath()).insert(novaConta);
+		
 		System.out.printf("Conta criada com sucesso! Informação da conta: %s\n", ((User) novaConta).toString());
-		System.out.println(request.getContextPath());
-		String path = getServletContext().getRealPath("");
 		
-		System.out.println(path);
-		
-		FileOutputStream fileOutputStream
-			= new FileOutputStream(path + "/teste.txt");
-		ObjectOutputStream objectOutputStream 
-			= new ObjectOutputStream(fileOutputStream);
-		objectOutputStream.writeObject(novaConta);
-		objectOutputStream.flush();
-		objectOutputStream.close();
-		System.out.println("Working Directory = " + System.getProperty("user.dir"));
 
 		response.getWriter().print(novaConta.getId());
 	}

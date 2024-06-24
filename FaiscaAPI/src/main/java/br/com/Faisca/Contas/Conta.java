@@ -20,13 +20,7 @@ public abstract class Conta implements Serializable{
 		// Vamos rezar para que não haja colisão. O valor esperado é que precise de 10⁹ contas pra haver colisão
 		// pelo paradoxo do aniversário. Acho que ta suave.
 		this.id = Gerador.getInstance().genId(); 
-		try {
-			MessageDigest digest = MessageDigest.getInstance("SHA-256");
-			hashSenha = digest.digest(senha.getBytes(StandardCharsets.UTF_8));
-		} catch (NoSuchAlgorithmException e) {
-			System.err.println("Não achou SHA-256");
-			e.printStackTrace();
-		}
+		this.hashSenha = Hasher.hash(senha);
 	}
 	
 	public abstract BigDecimal getBalance();
@@ -36,11 +30,8 @@ public abstract class Conta implements Serializable{
 	}
 	
 	public boolean verify(String senha) throws Exception {
-		MessageDigest digest = MessageDigest.getInstance("SHA-256");
-		byte[] encodedhash = digest.digest(
-		  senha.getBytes(StandardCharsets.UTF_8));
-		
-		return encodedhash.equals(hashSenha);
+
+		return Hasher.hash(senha).equals(hashSenha);
 	}
 	
 	public abstract void applyDelta(BigDecimal delta);
@@ -56,8 +47,10 @@ public abstract class Conta implements Serializable{
 		return this.nome;
 	}
 
-	protected byte[] getHashSenha() {
+	public byte[] getHashSenha() {
 		return this.hashSenha;
 	}
+
+	protected abstract Object getEmail();
 
 }
