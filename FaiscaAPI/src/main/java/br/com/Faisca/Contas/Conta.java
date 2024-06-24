@@ -20,6 +20,7 @@ public abstract class Conta implements Serializable{
 		// Vamos rezar para que não haja colisão. O valor esperado é que precise de 10⁹ contas pra haver colisão
 		// pelo paradoxo do aniversário. Acho que ta suave.
 		this.id = Gerador.getInstance().genId(); 
+		System.out.println("Senha: " + senha);
 		this.hashSenha = Hasher.hash(senha);
 	}
 	

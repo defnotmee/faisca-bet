@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.catalina.tribes.util.Arrays;
+
 import br.com.Faisca.Contas.Conta;
 import br.com.Faisca.Contas.ContasDAO;
 import br.com.Faisca.Contas.Hasher;
@@ -64,8 +66,8 @@ public class ServletLogin extends FaiscaServlet {
 			return;
 		}
 		
-		if(!Hasher.hash(senha).equals(conta.getHashSenha())){
-			System.err.println("Usuário errou senha da conta");
+		if(!Arrays.equals(Hasher.hash(senha), conta.getHashSenha())){
+			System.err.println("Usuário errou senha da conta: tentou " + senha + ", hash: " + Hasher.hash(senha));
 			response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
 			return;
 		}
