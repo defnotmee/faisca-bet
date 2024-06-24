@@ -45,7 +45,7 @@
    <children>
       <ImageView fx:id="myImage" fitHeight="225.0" fitWidth="226.0" layoutX="174.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../Downloads/roleta.png" />
+            <Image url="@./images/roleta.png" />
          </image>
       </ImageView>
       <ButtonBar layoutX="245.0" layoutY="328.0" prefHeight="40.0" prefWidth="65.0" />
@@ -71,7 +71,7 @@
       </TextField>
       <ImageView fitHeight="69.0" fitWidth="45.0" layoutX="263.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../Downloads/spin.png" />
+            <Image url="@./images/pin.png" />
          </image>
       </ImageView>
    </children>
