@@ -6,12 +6,9 @@ import java.security.NoSuchAlgorithmException;
 
 public final class Hasher {
 	public static byte[] hash(String s) {
-		System.err.println(s);
 		MessageDigest digest;
 		try {
 			digest = MessageDigest.getInstance("SHA-256");
-			
-			
 			return digest.digest(s.getBytes(StandardCharsets.UTF_8));
 		} catch (NoSuchAlgorithmException e) {
 			System.err.println("Fudeu, não achou SHA-256");

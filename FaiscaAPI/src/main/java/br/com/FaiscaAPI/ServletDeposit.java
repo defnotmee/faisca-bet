@@ -43,9 +43,19 @@ public class ServletDeposit extends FaiscaServlet {
 			response.getWriter().print("Sem todos os parametros necessários.");
 			return;
 		}
-			
-		Long id = Long.parseLong(sid);
-		BigDecimal ammount = new BigDecimal(sammount);
+		
+		Long id;
+		BigDecimal ammount;
+		
+		try {
+			id = Long.parseLong(sid);
+			ammount = new BigDecimal(sammount);
+		} catch(Exception e) {
+			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+			response.getWriter().print("Mal formulado.");
+			return;
+		}
+		
 		
 		if(!senha.equals("EuAmoOSigmaBank")) {
 			response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
@@ -71,7 +81,6 @@ public class ServletDeposit extends FaiscaServlet {
 		}
 		
 		ContasDAO.getInstance(getContaPath()).persist();
-			
 	}
 
 }

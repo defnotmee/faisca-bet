@@ -36,7 +36,7 @@ public class ServletInfo extends FaiscaServlet {
 		}
 		Long id;
 		
-		try {
+		try { 	
 			id = Long.parseLong(sid);
 		} catch(Exception e) {
 			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
@@ -57,6 +57,8 @@ public class ServletInfo extends FaiscaServlet {
 		String json = ow.writeValueAsString(usuario);
 		
 		response.getWriter().print(json);
+		
+		System.out.println("Foi requerido o seguinte usuario: " + json);
 		
 	}
 
