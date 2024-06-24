@@ -56,6 +56,17 @@ public class ContasDAO {
 		return null;
 	}
 	
+	public Conta accessCpf(String cpf) throws FileNotFoundException, IOException {
+		List<Conta> cur = getSnapshot();
+		
+		for(Conta i : cur) {
+			if(i.getCpf().equals(cpf)){
+				return i;
+			}
+		}
+		return null;
+	}
+	
 	public void clearSnapshot() {
 		this.snapshot = null;
 	}

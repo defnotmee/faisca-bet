@@ -65,7 +65,7 @@ public class User extends Conta implements Serializable{
 			", alreadyDeposit='" + isAlreadyDeposit() + "'" +
 			", qtdBonus='" + getQtdBonus() + "'" +
 			", qtdDeposit='" + getQtdDeposit() + "'" +
-			", cpf='" + getCpf() + "'" +
+			", cpf='" + User.imprimeCpf(getCpf()) + "'" +
 			"}";
 	}
 
@@ -93,16 +93,21 @@ public class User extends Conta implements Serializable{
 		this.qtdDeposit = qtdDeposit;
 	}
 	
-	public static String imprimeCPF(String CPF) {
+	public static String imprimeCpf(String CPF) {
+		if(CPF == "null")
+			return CPF;
         return(CPF.substring(0, 3) + "." + CPF.substring(3, 6) + "." +
         CPF.substring(6, 9) + "-" + CPF.substring(9, 11));
     }
 	
-	private String getCpf() {
+	@Override
+	public String getCpf() {
 		if(this.cpf == null)
 			return "null";
-		return User.imprimeCPF(this.cpf);
+		return this.cpf;
 	}
+	
+	
 
 	private void setCpf(String cpf) {
 		this.cpf = cpf;

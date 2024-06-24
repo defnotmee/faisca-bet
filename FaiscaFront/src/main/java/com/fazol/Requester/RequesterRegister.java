@@ -8,21 +8,23 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public abstract class RequesterLogin extends Requester{
+public abstract class RequesterRegister extends Requester{
     
 
     /**
      * Argumentos
-     *  arguments[0]: email do usuario
-     *  arguments[1]: senha do usuário
-     * 
+     *  arguments[0]: nome do usuário
+     *  arguments[1]: email do usuario
+     *  arguments[2]: senha do usuário
+     *  arguments[3]: cpf do usuário (sem pontos, por exemplo 43759625851) [opicional]
+     *  
      * Erros possíveis:
-     *  400: request inválida (provavelmente por email inválido)
-     *  401: não autorizado (senha errada)
-     *  404: não achado (não foi encontrado usuário com aquele email)
+     *  400: request inválida
+     *     - Retorna "Email inválido" ou "CPF inválido" caso seja o caso
+     *     - Retrona "Email já existe" ou "CPF já existe" caso já tenha usuário com ele  
      * 
      * Retorno caso status code 200:
-     *  String com o Id do usuário (em Long)
+     *  String com o Id do usuário criado (em Long)
      */
     @Override
     public Object makeRequest(List<String> arguments){
@@ -31,10 +33,14 @@ public abstract class RequesterLogin extends Requester{
 
             Map<String,String> mp = new HashMap<String,String>();
 
-            mp.put("email", arguments.get(0));
-            mp.put("senha", arguments.get(1));
+            mp.put("nome", arguments.get(0));
+            mp.put("email", arguments.get(1));
+            mp.put("senha", arguments.get(2));
+            if(arguments.size() > 2){
+                mp.put("cpf", arguments.get(3));
+            }
 
-            String serviceUrl = "http://localhost:8080/faisca-api/login";
+            String serviceUrl = "http://localhost:8080/faisca-api/register";
                 
             HttpRequest request = HttpRequest.newBuilder()
             .uri(URI.create(serviceUrl))

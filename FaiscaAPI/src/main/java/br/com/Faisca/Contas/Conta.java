@@ -34,6 +34,8 @@ public abstract class Conta implements Serializable{
 		return Hasher.hash(senha).equals(hashSenha);
 	}
 	
+	public abstract String getCpf();
+	
 	public abstract void applyDelta(BigDecimal delta);
 
 	// Retorna true se você ganhou o bonus de primeiro deposito

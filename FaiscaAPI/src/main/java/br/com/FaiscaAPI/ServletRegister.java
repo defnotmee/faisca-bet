@@ -40,14 +40,14 @@ public class ServletRegister extends FaiscaServlet {
 		if(nome == null) {
 			System.err.println("Usuário não colocou nome para registrar.");
 			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-			response.getWriter().print("Sem nome.");
+			response.getWriter().print("Sem nome");
 			return;
 		}
 		
 		if(email == null) {
 			System.err.println("Usuário não colocou email para registrar.");
 			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-			response.getWriter().print("Sem email.");
+			response.getWriter().print("Sem email");
 			return;
 		}
 		
@@ -61,7 +61,7 @@ public class ServletRegister extends FaiscaServlet {
 		if(senha == null) {
 			System.err.println("Usuário não colocou senha para registrar.");
 			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-			response.getWriter().print("Sem senha.");
+			response.getWriter().print("Sem senha");
 			return;
 		}
 		
@@ -69,7 +69,13 @@ public class ServletRegister extends FaiscaServlet {
 			if(!Validator.validateCpf(cpf)) {
 				System.err.println("Usuário colocou cpf inválido.");
 				response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-				response.getWriter().print("CPF inválido.");
+				response.getWriter().print("CPF inválido");
+				return;
+			}
+			if(ContasDAO.getInstance(getContaPath()).accessCpf(cpf) != null) {
+				System.err.println("Usuário tentou criar conta com cpf existente");
+				response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+				response.getWriter().print("CPF já existe");
 				return;
 			}
 		}

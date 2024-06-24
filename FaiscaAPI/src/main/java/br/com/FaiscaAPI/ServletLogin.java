@@ -16,7 +16,8 @@ import br.com.Faisca.Contas.Hasher;
 import br.com.Faisca.Contas.User;
 
 /**
- * Servlet implementation class ServletLogin
+ * Parâmetros: email (email do usuário), senha (senha do usuário)
+ * Status codes: 
  */
 @WebServlet("/login")
 public class ServletLogin extends FaiscaServlet {
