@@ -40,7 +40,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="569.0" style="-fx-background-color: #00008B;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fazol.roletinhaController">
    <children>
       <ImageView fx:id="myImage" fitHeight="225.0" fitWidth="226.0" layoutX="174.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
@@ -71,7 +70,7 @@
       </TextField>
       <ImageView fitHeight="69.0" fitWidth="45.0" layoutX="263.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@./images/pin.png" />
+            <Image url="@images/pin.png" />
          </image>
       </ImageView>
    </children>
