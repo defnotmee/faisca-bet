@@ -58,6 +58,10 @@ public class loginController {
             
                 // Send Request to server
                 List<String> arguments = new ArrayList<String>();
+
+                arguments.add(username.getText());
+                arguments.add(password.getText());
+
                 List<String> response = new ArrayList<String>();
 
                 RequesterLogin requesterLogin = new RequesterLogin();
