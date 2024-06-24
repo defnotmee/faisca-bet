@@ -44,6 +44,7 @@ public class signInController {
         String password = this.password.getText();
         String conf_email = this.conf_email.getText();
         String conf_password = this.conf_password.getText();
+        
         if (cpf.isEmpty() || username.isEmpty() || email.isEmpty() || password.isEmpty() || conf_email.isEmpty() || conf_password.isEmpty()) {
             Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("Erro");

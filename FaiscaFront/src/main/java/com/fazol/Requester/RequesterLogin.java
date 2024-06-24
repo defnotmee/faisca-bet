@@ -4,12 +4,16 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public abstract class RequesterLogin extends Requester{
+public class RequesterLogin extends Requester{
     
+    RequesterLogin RequesterLogin(){
+        return new RequesterLogin();
+    }
 
     /**
      * Argumentos
@@ -47,15 +51,21 @@ public abstract class RequesterLogin extends Requester{
             String retorno = response.body();
             int statusCode = response.statusCode(); // tem que ser 200 se deu certo
             
+            List<Object> res = new ArrayList<Object>(2);
+            res.add(response.body());
+            res.add(response.statusCode());
+
+            return res;
+
             /**
              * Resto do código
              */
 
         }catch(Exception e){
             e.printStackTrace();
-            return e;
+            return null;
         }
 
-        return null; // FIXME
+        //return null; // FIXME
     }
 }

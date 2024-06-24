@@ -3,13 +3,18 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="441.0" prefWidth="700.0" style="-fx-background-color: #063457; -fx-background-radius: 0;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane prefHeight="441.0" prefWidth="134.0" style="-fx-background-color: #436894;">
+      <AnchorPane layoutX="-8.0" prefHeight="441.0" prefWidth="134.0" style="-fx-background-color: #436894;">
          <children>
-            <Button layoutX="41.0" layoutY="32.0" mnemonicParsing="false" stylesheets="@css/buttons.css" text="Button" />
+            <Button layoutX="30.0" layoutY="145.0" mnemonicParsing="false" prefHeight="14.0" prefWidth="94.0" style="-fx-background-color: #436894;" text="Button" />
+            <AnchorPane layoutX="6.0" prefHeight="122.0" prefWidth="142.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="9.0" layoutX="-29.0" layoutY="121.0" stroke="BLACK" strokeType="INSIDE" width="181.0" />
+            <Button layoutX="30.0" layoutY="171.0" mnemonicParsing="false" prefHeight="14.0" prefWidth="94.0" style="-fx-background-color: #436894;" text="Button" />
+            <Button layoutX="30.0" layoutY="197.0" mnemonicParsing="false" prefHeight="14.0" prefWidth="94.0" style="-fx-background-color: #436894;" text="Button" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="134.4" prefHeight="441.0" prefWidth="566.0" style="-fx-background-color: #063457;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="134.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">

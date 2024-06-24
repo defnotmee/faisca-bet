@@ -1,6 +1,10 @@
 package com.fazol;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.fazol.Requester.RequesterLogin;
 
 import javafx.event.ActionEvent;
 import javafx.scene.Parent;
@@ -50,19 +54,56 @@ public class loginController {
             alert.setContentText("Por favor preencha todas as informações");
             alert.showAndWait();
         } else {
-            // Send Request to server
-            // If server returns true
-            // App.setRoot("home");
             
-            App.scene = new Scene(loadFXML("home"), 1960,1080);
-            App.stages.get(0).close();
-            Stage stage = new Stage();
+            
+                // Send Request to server
+                List<String> arguments = new ArrayList<String>();
+                List<String> response = new ArrayList<String>();
 
-            stage.setScene(App.scene);
-            App.stages.add(stage);
-            stage.setFullScreen(true);
-            stage.show();
+                RequesterLogin requesterLogin = new RequesterLogin();
+                response = (List<String>) requesterLogin.makeRequest(arguments);
 
+                if (response == null){
+                    Alert alert = new Alert(AlertType.ERROR);
+                    alert.setTitle("Erro");
+                    alert.setHeaderText("Erro ao conectar com o servidor");
+                    alert.setContentText("Por favor tente novamente mais tarde");
+                    alert.showAndWait();
+                } else if (response.get(1).equals("400")){
+                    Alert alert = new Alert(AlertType.ERROR);
+                    alert.setTitle("Erro");
+                    alert.setHeaderText("Email inválido");
+                    alert.setContentText("Por favor, verifique se o email está correto");
+                    alert.showAndWait();
+                } else if (response.get(1).equals("401")){
+                    Alert alert = new Alert(AlertType.ERROR);
+                    alert.setTitle("Erro");
+                    alert.setHeaderText("Senha incorreta");
+                    alert.setContentText("Por favor, verifique se a senha está correta");
+                    alert.showAndWait();
+                } else if (response.get(1).equals("404")){
+                    Alert alert = new Alert(AlertType.ERROR);
+                    alert.setTitle("Erro");
+                    alert.setHeaderText("Usuário não encontrado");
+                    alert.setContentText("Por favor, verifique se o email está correto");
+                    alert.showAndWait();
+                } else if (response.get(1).equals("200")){
+                    App.id = Long.parseLong(response.get(0));
+                }
+
+                // If server returns true
+                // App.setRoot("home");
+
+
+                
+                App.scene = new Scene(loadFXML("home"), 1960,1080);
+                App.stages.get(0).close();
+                Stage stage = new Stage();
+
+                stage.setScene(App.scene);
+                App.stages.add(stage);
+                stage.setFullScreen(true);
+                stage.show();
         }
     }
 
