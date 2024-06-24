@@ -55,6 +55,7 @@ public class ServletLogin extends FaiscaServlet {
 		
 		Conta conta = ContasDAO.getInstance(getContaPath()).accessEmail(email);
 		
+		
 		if(conta == null){
 			System.err.println("A conta com o email requerido pelo usuário não foi encontrada");
 			response.setStatus(HttpServletResponse.SC_NOT_FOUND);

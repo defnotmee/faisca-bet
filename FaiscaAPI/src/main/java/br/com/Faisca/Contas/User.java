@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 public class User extends Conta implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
-	private boolean firstDeposit;
+	private boolean alreadyDeposit;
 	private BigDecimal qtdBonus, qtdDeposit;
 	private String cpf;
 	private String email;
@@ -14,7 +14,7 @@ public class User extends Conta implements Serializable{
 	
 	public User(String nome, String email, String senha, String cpf) {
 		super(nome, senha);
-		firstDeposit = true;
+		alreadyDeposit = true;
 		this.email = email;
 		qtdBonus = new BigDecimal(0);
 		qtdDeposit = new BigDecimal(0);
@@ -22,7 +22,7 @@ public class User extends Conta implements Serializable{
 	}
 
 	public boolean isBonusAvailable(){
-		return isFirstDeposit();
+		return !isAlreadyDeposit();
 	}
 
 	@Override
@@ -44,12 +44,14 @@ public class User extends Conta implements Serializable{
 	}
 
 	@Override
-	public void deposit(BigDecimal ammount){
-		if(firstDeposit && ammount.compareTo(new BigDecimal(100)) >= 0){
+	public boolean deposit(BigDecimal ammount){
+		boolean ret = isBonusAvailable();
+		if(!alreadyDeposit && ammount.compareTo(new BigDecimal(100)) >= 0){
 			qtdBonus = qtdBonus.add(new BigDecimal(100));
-			firstDeposit = true;
+			setAlreadyDeposit(true);
 		}
 		qtdDeposit = qtdDeposit.add(ammount);
+		return ret;
 	}
 
 	@Override
@@ -59,15 +61,19 @@ public class User extends Conta implements Serializable{
 			", email='" + getEmail() + "'" +
 			", hashSenha='" + super.getHashSenha() + "'" +
 			", accountId='" + super.getId() + "'" +
-			", firstDeposit='" + isFirstDeposit() + "'" +
+			", alreadyDeposit='" + isAlreadyDeposit() + "'" +
 			", qtdBonus='" + getQtdBonus() + "'" +
 			", qtdDeposit='" + getQtdDeposit() + "'" +
 			", cpf='" + getCpf() + "'" +
 			"}";
 	}
 
-	private boolean isFirstDeposit() {
-		return this.firstDeposit;
+	private boolean isAlreadyDeposit() {
+		return this.alreadyDeposit;
+	}
+
+	public void setAlreadyDeposit(boolean alreadyDeposit) {
+		this.alreadyDeposit = alreadyDeposit;
 	}
 
 	private BigDecimal getQtdBonus() {

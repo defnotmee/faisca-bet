@@ -36,14 +36,14 @@ public abstract class Conta implements Serializable{
 	
 	public abstract void applyDelta(BigDecimal delta);
 
-	
-	public abstract void deposit(BigDecimal ammount);
+	// Retorna true se você ganhou o bonus de primeiro deposito
+	public abstract boolean deposit(BigDecimal ammount);
 	
 	public Long getId() {
 		return this.id;
 	}
 
-	protected String getNome() {
+	public String getNome() {
 		return this.nome;
 	}
 
