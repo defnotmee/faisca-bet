@@ -43,7 +43,7 @@ public class registerController {
     
 
     @FXML
-    void TryNewUser(ActionEvent event) {
+    void TryNewUser(ActionEvent event) throws IOException{
         String cpf = CPF.getText();
         String username = Username.getText();
         String email = this.email.getText();
@@ -109,6 +109,7 @@ public class registerController {
             }
 
             App.userId = response;
+            App.setRoot("login");
         }
     }
 
