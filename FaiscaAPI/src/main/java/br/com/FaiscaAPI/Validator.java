@@ -11,6 +11,8 @@ public final class Validator {
 		return Pattern.compile(regexPattern).matcher(email).matches();
 	}
 	
+	
+	// Créditos: https://www.devmedia.com.br/validando-o-cpf-em-uma-aplicacao-java/22097
 	public static boolean validateCpf(String CPF) {
         // considera-se erro CPF"s formados por uma sequencia de numeros iguais
         if (CPF.equals("00000000000") ||

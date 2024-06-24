@@ -53,7 +53,7 @@ public class ServletLogin extends FaiscaServlet {
 			return;
 		}
 		
-		Conta conta = ContasDAO.getInstance(getDataPath()).accessEmail(email);
+		Conta conta = ContasDAO.getInstance(getContaPath()).accessEmail(email);
 		
 		if(conta == null){
 			System.err.println("A conta com o email requerido pelo usuário não foi encontrada");
@@ -64,6 +64,7 @@ public class ServletLogin extends FaiscaServlet {
 		
 		if(Hasher.hash(senha).equals(conta.getHashSenha())){
 			response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
+			return;
 		}
 				
 		response.getWriter().print(conta.getId());

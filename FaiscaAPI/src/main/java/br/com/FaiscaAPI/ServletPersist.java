@@ -32,12 +32,12 @@ public class ServletPersist extends FaiscaServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("Working Directory = " + System.getProperty("user.dir"));
-	    System.out.println(getDataPath());
+	    System.out.println(getContaPath());
 		
 		String senha = request.getParameter("senha");
 		
 		if(senha.equals("FelipeNetoOCara")) {
-			ContasDAO.getInstance(getDataPath()).persist();
+			ContasDAO.getInstance(getContaPath()).persist();
 		} else {
 			response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
 		}

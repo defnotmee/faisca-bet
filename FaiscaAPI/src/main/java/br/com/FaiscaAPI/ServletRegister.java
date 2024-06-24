@@ -74,7 +74,7 @@ public class ServletRegister extends FaiscaServlet {
 			}
 		}
 		
-		if(ContasDAO.getInstance(getDataPath()).accessEmail(email) != null) {
+		if(ContasDAO.getInstance(getContaPath()).accessEmail(email) != null) {
 			System.err.println("Usuário tentou criar conta com email existente");
 			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 			response.getWriter().print("Email já existe");
@@ -83,11 +83,11 @@ public class ServletRegister extends FaiscaServlet {
 		
 		Conta novaConta = new User(nome,email,senha,cpf);
 		
-		ContasDAO.getInstance(getDataPath()).insert(novaConta);
+		ContasDAO.getInstance(getContaPath()).insert(novaConta);
 		
 		System.out.printf("Conta criada com sucesso! Informação da conta: %s\n", ((User) novaConta).toString());
 		
-		ContasDAO.getInstance(getDataPath()).persist();
+		ContasDAO.getInstance(getContaPath()).persist();
 
 		response.getWriter().print(novaConta.getId());
 	}
