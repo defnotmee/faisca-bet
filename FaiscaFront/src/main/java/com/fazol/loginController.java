@@ -67,6 +67,7 @@ public class loginController {
                 if (username.getText().equals("A") && password.getText().equals("A")){
                     App.scene = new Scene(loadFXML("home"), 1960,1080);
                     App.stages.get(0).close();
+                    App.stages.remove(0);
                     Stage stage = new Stage();
 
                     stage.setScene(App.scene);
