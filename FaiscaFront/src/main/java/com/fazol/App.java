@@ -7,21 +7,23 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * JavaFX App
  */
 public class App extends Application {
 
-    private static Scene scene;
+    static Scene scene;
+    static List<Stage> stages = new ArrayList<Stage>(10);
 
     @Override
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("login"), 700, 441);
+        stages.add(stage);
         stage.setScene(scene);
-        stage.setResizable(false);
         stage.show();
-        
     }
 
     static void setRoot(String fxml) throws IOException {
