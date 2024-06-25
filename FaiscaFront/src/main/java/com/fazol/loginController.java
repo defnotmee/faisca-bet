@@ -1,14 +1,14 @@
 package com.fazol;
 
-import com.fazol.Account;
-
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.fazol.Requester.RException.InvalidEmailException;
 import com.fazol.Requester.RException.PermissionException;
 import com.fazol.Requester.RException.UserNotFoundException;
+import com.fazol.Requester.RequesterInfo;
 import com.fazol.Requester.RequesterLogin;
 
 import javafx.event.ActionEvent;
@@ -117,9 +117,17 @@ public class loginController {
                     alert.showAndWait();
                     return;
                 }
-
-                App.conta = new Account((String) response);
-
+                
+                RequesterInfo req = new RequesterInfo();
+                String json;
+                try {
+                    json = req.makeRequest(Arrays.asList(String.valueOf(response)));
+                } catch (Exception e) {
+                    System.err.println("Não é pra cair aqui");
+                    return;
+                }
+                
+                App.conta = new Account(json);
                 
                 App.scene = new Scene(loadFXML("home"), 1960,1080);
                 App.stages.get(0).close();

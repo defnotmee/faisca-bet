@@ -14,7 +14,7 @@ public class User extends Conta implements Serializable{
 	
 	public User(String nome, String email, String senha, String cpf) {
 		super(nome, senha);
-		alreadyDeposit = true;
+		alreadyDeposit = false;
 		this.email = email;
 		qtdBonus = new BigDecimal(0);
 		qtdDeposit = new BigDecimal(0);
