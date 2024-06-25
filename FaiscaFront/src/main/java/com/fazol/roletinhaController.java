@@ -52,11 +52,11 @@ public class roletinhaController {
 			}
 		} catch (Exception e) {
 			System.out.println("Dados mal formatados");
+			return;
 		}
 		
 		RequesterRoleta req = new RequesterRoleta();
 		String res;
-		
 		try {
 			res = req.makeRequest(Arrays.asList(App.conta.getId().toString(), valorBet.getText(), cor));
 			
