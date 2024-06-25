@@ -40,7 +40,7 @@ public class RequesterRegister extends Requester{
         mp.put("nome", arguments.get(0));
         mp.put("email", arguments.get(1));
         mp.put("senha", arguments.get(2));
-        if(arguments.size() > 2){
+        if(arguments.size() > 3){
             mp.put("cpf", arguments.get(3));
         }
 

@@ -39,6 +39,16 @@
                <font>
                   <Font size="39.0" />
                </font></Button>
+            <Button fx:id="saqueButton" layoutX="21.0" layoutY="584.0" mnemonicParsing="false" onAction="#trySaque" prefHeight="82.0" prefWidth="354.0" style="-fx-background-color: #436894;" text="Saques">
+               <font>
+                  <Font size="39.0" />
+               </font>
+            </Button>
+            <Button fx:id="depositButton" layoutX="29.0" layoutY="666.0" mnemonicParsing="false" onAction="#tryDeposito" prefHeight="82.0" prefWidth="354.0" style="-fx-background-color: #436894;" text="Depósitos">
+               <font>
+                  <Font size="39.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
       <AnchorPane layoutX="410.4" prefHeight="1080.0" prefWidth="1550.0" style="-fx-background-color: #063457;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="410.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">

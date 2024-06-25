@@ -68,6 +68,7 @@ public class ServletDeposit extends FaiscaServlet {
 		if(cur == null) {
 			System.err.println("Usuário tentou depositar em conta inexistente");
 			response.sendError(HttpServletResponse.SC_NOT_FOUND);
+			return;
 		}
 		
 		boolean ret = cur.deposit(ammount);

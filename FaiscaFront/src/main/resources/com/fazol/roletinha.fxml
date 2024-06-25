@@ -44,7 +44,7 @@
    <children>
       <ImageView fx:id="myImage" fitHeight="225.0" fitWidth="226.0" layoutX="174.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../images/roleta.png" />
+            <Image url="@images/roleta.png" />
          </image>
       </ImageView>
       <ButtonBar layoutX="245.0" layoutY="328.0" prefHeight="40.0" prefWidth="65.0" />
@@ -63,14 +63,14 @@
             <Font size="20.0" />
          </font>
       </Button>
-      <TextField layoutX="253.0" layoutY="349.0" prefHeight="39.0" prefWidth="65.0" promptText="Valor" style="-fx-background-radius: 0; -fx-blend-mode: true;">
+      <TextField layoutX="248.0" layoutY="342.0" prefHeight="43.0" prefWidth="74.0" promptText="Valor" style="-fx-background-radius: 0;">
          <font>
             <Font size="20.0" />
          </font>
       </TextField>
-      <ImageView fitHeight="69.0" fitWidth="45.0" layoutX="263.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="69.0" fitWidth="45.0" layoutX="263.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true" smooth="false">
          <image>
-            <Image url="@../../../../../../images/pin.png" />
+            <Image url="@images/spin.png" />
          </image>
       </ImageView>
    </children>

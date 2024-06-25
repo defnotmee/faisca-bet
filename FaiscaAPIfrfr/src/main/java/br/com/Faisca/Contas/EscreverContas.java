@@ -16,5 +16,7 @@ public final class EscreverContas {
 		
 		objout.flush();
 		objout.close();
+		
+		System.out.println("Escrevi!");
 	}
 }
