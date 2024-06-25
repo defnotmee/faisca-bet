@@ -1,45 +1,48 @@
 package com.fazol;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
+import java.math.BigDecimal;
+
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Account {
     
     String nome;
-    int id;
+    Long id;
     String cpf;
     String email;
     boolean bonusAvailable;
-    int balance;
+    BigDecimal balance;
 
     public Account() {
     }
     
-    Account(String json) throws JsonMappingException, JsonProcessingException{
-        final JsonNode node = new ObjectMapper().readTree(json);
+    Account(String json) {
+        try {
+            final JsonNode node = new ObjectMapper().readTree(json);
 
-        Account account = new Account();
 
-        if (node.has("nome")) {
-            account.nome = node.get("nome").asText();
+            if (node.has("nome")) {
+                this.nome = node.get("nome").asText();
+            }
+            if (node.has("id")) {
+                this.id = node.get("id").asLong();
+            }
+            if (node.has("cpf")) {
+                this.cpf = node.get("cpf").asText();
+            }
+            if (node.has("email")) {
+                this.email = node.get("email").asText();
+            }
+            if (node.has("bonusAvailable")) {
+                this.bonusAvailable = node.get("bonusAvailable").asBoolean();
+            }
+            if (node.has("balance")) {
+                this.balance = new BigDecimal(node.get("balance").asDouble());
+            }
+        } catch (Exception e) {
+            System.out.println("Fudeu! Não era pra entrar aqui");
         }
-        if (node.has("id")) {
-            account.id = node.get("id").asInt();
-        }
-        if (node.has("cpf")) {
-            account.cpf = node.get("cpf").asText();
-        }
-        if (node.has("email")) {
-            account.email = node.get("email").asText();
-        }
-        if (node.has("bonusAvailable")) {
-            account.bonusAvailable = node.get("bonusAvailable").asBoolean();
-        }
-        if (node.has("balance")) {
-            account.balance = node.get("balance").asInt();
-        }
-
+        
     }
 }

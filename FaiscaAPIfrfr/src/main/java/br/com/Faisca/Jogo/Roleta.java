@@ -59,7 +59,7 @@ public class Roleta implements Jogo {
 		
 		jogador.applyDelta(bet.subtract(ini));
 		
-		return String.format("Você escolheu %s mas o resultado foi... %s!", choice.name(), res.name());
+		return String.format(choice.name());
 		
 	}
 
