@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.fazol.Requester.RException.InvalidDataException;
+import com.fazol.Requester.RException.TooPoorException;
 public class RequesterRoleta extends Requester{
     /**
      * Argumentos
@@ -30,7 +31,7 @@ public class RequesterRoleta extends Requester{
      **/
 
     @Override
-    public String makeRequest(List<String> arguments)  throws InvalidDataException {
+    public String makeRequest(List<String> arguments)  throws InvalidDataException, TooPoorException {
         HttpClient client = HttpClient.newHttpClient();
 
         Map<String,String> mp = new HashMap<>();

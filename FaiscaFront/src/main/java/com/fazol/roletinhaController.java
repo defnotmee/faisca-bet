@@ -1,18 +1,19 @@
 package com.fazol;
 
-import java.net.URL;
-import javafx.event.ActionEvent;
-import java.util.ResourceBundle;
+import java.util.Arrays;
+
+import com.fazol.Requester.RException.InvalidDataException;
+import com.fazol.Requester.RException.TooPoorException;
+import com.fazol.Requester.RequesterRoleta;
 
 import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
-import javafx.animation.TranslateTransition;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.util.Duration;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.util.Duration;
 
 public class roletinhaController {
 	
@@ -43,25 +44,56 @@ public class roletinhaController {
 		App.stages.remove(App.stages.size()-1);
 	}
 
+	void generalSpin(String cor){
+		try {
+			if (valorBet.getText().isEmpty() || Double.parseDouble(valorBet.getText()) <= 0) {
+				System.out.println("Valor inválido");
+				return;
+			}
+		} catch (Exception e) {
+			System.out.println("Dados mal formatados");
+		}
+		
+		RequesterRoleta req = new RequesterRoleta();
+		String res;
+		
+		try {
+			res = req.makeRequest(Arrays.asList(App.conta.getId().toString(), valorBet.getText(), cor));
+			
+		} catch (InvalidDataException e) {
+			System.out.println("Dados mal formatados");
+			return;
+		} catch (TooPoorException e){
+			System.out.println("Sem dinheiro suficiente");
+			return;
+		} catch(Exception e){
+			System.out.println("Não é para chegar aqui");
+			return;
+		}
+
+		roda(Cor.valueOf(res));
+	}
+
 	@FXML
 	void red(ActionEvent event) {
-	
+		generalSpin("VERMELHO");
 	}
 
 	@FXML
 	void white(ActionEvent event) {
-		
+		generalSpin("BRANCO");
 	}
 
 	@FXML
 	void black(ActionEvent event) {
-		
+		generalSpin("PRETO");
 	}
 
 
 	
 	@FXML
 	void roda(Cor cor){
+		myImage.setRotate(0);
 		switch (cor) {
 			case BRANCO:
 				RotateTransition rotateBranco = new RotateTransition();
