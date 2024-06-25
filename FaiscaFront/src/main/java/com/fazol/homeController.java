@@ -50,15 +50,15 @@ public class homeController {
 
     @FXML
     void tryDeposito(ActionEvent event) throws IOException {
-        if (App.stages.size() > 2){
+        
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Erro");
-            alert.setHeaderText("Não se pode abrir mais de 2 janelas ao mesmo tempo");
-            alert.setContentText("Por favor, feche uma das janelas abertas para poder abrir uma nova!");
+            alert.setHeaderText("Deposito");
+            alert.setContentText("Deposito ainda não disponivel");
             alert.showAndWait();
             return;
-        }
-
+        
+        /*
         App.scene = new Scene(loadFXML("deposit"), 700,441);
         App.stages.get(0).close();
         App.stages.remove(0);
@@ -67,7 +67,7 @@ public class homeController {
         stage.setScene(App.scene);
         App.stages.add(stage);
         stage.show();
-
+*/
     }
 
     @FXML

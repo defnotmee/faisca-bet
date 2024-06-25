@@ -41,17 +41,17 @@ public class roletinhaController {
 
 	@FXML
 	void red(ActionEvent event) {
-		roda(Cor.VERMELHO);
+		
 	}
 
 	@FXML
 	void white(ActionEvent event) {
-		roda(Cor.BRANCO);
+		
 	}
 
 	@FXML
 	void black(ActionEvent event) {
-		roda(Cor.PRETO);
+		
 	}
 
 
@@ -62,30 +62,30 @@ public class roletinhaController {
 			case BRANCO:
 				RotateTransition rotateBranco = new RotateTransition();
 				rotateBranco.setNode(myImage);
-				rotateBranco.setDuration(Duration.millis(1000));
+				rotateBranco.setDuration(Duration.millis(5000));
 				rotateBranco.setInterpolator(Interpolator.LINEAR);
-				rotateBranco.setCycleCount(5);
-				rotateBranco.setByAngle(180);
+				rotateBranco.setCycleCount(1);
+				rotateBranco.setByAngle(1800);
 				rotateBranco.play();	
 				break;
 			
 			case PRETO:
 				RotateTransition rotateP = new RotateTransition();
 				rotateP.setNode(myImage);
-				rotateP.setDuration(Duration.millis(1000));
+				rotateP.setDuration(Duration.millis(5000));
 				rotateP.setInterpolator(Interpolator.LINEAR);
-				rotateP.setCycleCount(5);
-				rotateP.setByAngle(360);
+				rotateP.setCycleCount(1);
+				rotateP.setByAngle(1800-98);
 				rotateP.play();	
 				break;
 
 			case VERMELHO:
 				RotateTransition rotate = new RotateTransition();
 				rotate.setNode(myImage);
-				rotate.setDuration(Duration.millis(1000));
+				rotate.setDuration(Duration.millis(5000));
 				rotate.setInterpolator(Interpolator.LINEAR);
-				rotate.setCycleCount(5);
-				rotate.setByAngle(360);
+				rotate.setCycleCount(1);
+				rotate.setByAngle(1800 + 98);
 				rotate.play();	
 				break;
 				
