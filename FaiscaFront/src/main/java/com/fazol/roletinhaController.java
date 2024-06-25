@@ -12,6 +12,7 @@ import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -53,11 +54,19 @@ public class roletinhaController {
 	void generalSpin(String cor){
 		try {
 			if (valorBet.getText().isEmpty() || Double.parseDouble(valorBet.getText()) <= 0) {
-				System.out.println("Valor inválido");
+				Alert alert = new Alert(Alert.AlertType.ERROR);
+				alert.setTitle("ERRO");
+				alert.setHeaderText("Valor inválido");
+				alert.setContentText("Por favor insira um valor valido para a aposta!");
+				alert.showAndWait();
+				
 				return;
 			}
 		} catch (Exception e) {
-			System.out.println("Dados mal formatados");
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+			alert.setTitle("ERRO");
+			alert.setHeaderText("Valor inválido");
+			alert.setContentText("Por favor insira um valor valido para a aposta!");
 			return;
 		}
 		
@@ -67,10 +76,20 @@ public class roletinhaController {
 			res = req.makeRequest(Arrays.asList(App.conta.getId().toString(), valorBet.getText(), cor));
 			
 		} catch (InvalidDataException e) {
-			System.out.println("Dados mal formatados");
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+			alert.setTitle("ERRO");
+			alert.setHeaderText("Dados inválidos");
+			alert.setContentText("Por favor insira um valor valido para a aposta!");
+			alert.showAndWait();
+			
 			return;
 		} catch (TooPoorException e){
-			System.out.println("Sem dinheiro suficiente");
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+			alert.setTitle("ERRO");
+			alert.setHeaderText("Saldo insuficiente");
+			alert.setContentText("Você não tem saldo suficiente para essa aposta!");
+			alert.showAndWait();
+
 			return;
 		} catch(Exception e){
 			System.out.println("Não é para chegar aqui");

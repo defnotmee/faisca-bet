@@ -56,7 +56,17 @@ public class loginController {
     @FXML
     void tentarLogin(ActionEvent event) throws IOException{
 
+        if (ipServerBox.getText().isEmpty()){
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Erro");
+            alert.setHeaderText("Espaço vazio");
+            alert.setContentText("Por favor preencha o campo de IP do servidor");
+            alert.showAndWait();
+            return;
+        }
+        
         App.setServerIp(ipServerBox.getText());
+
 
         if (username.getText().isEmpty() || password.getText().isEmpty()) {
             Alert alert = new Alert(AlertType.ERROR);

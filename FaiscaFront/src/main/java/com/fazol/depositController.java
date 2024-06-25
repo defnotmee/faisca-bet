@@ -57,6 +57,11 @@ public class depositController {
                 bonusAlert.showAndWait();
             }
 
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("SUCESSO");
+            alert.setHeaderText("Depósito realizado com sucesso!");
+            alert.setContentText("O valor de " + Ammount.getText() + " reais foi depositado na sua conta!");
+
         } catch (Exception e) {
             System.out.println("Dados mal formatados");
             return;
