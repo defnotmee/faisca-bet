@@ -108,7 +108,11 @@ public class homeController {
 
     @FXML
     void startBomba(ActionEvent event) {
-
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("ERRO");
+        alert.setHeaderText("Jogo ainda não disponivel");
+        alert.setContentText("Por favor, tente novamente daqui uns anos");
+        alert.showAndWait();
     }
 
     @FXML
@@ -122,7 +126,7 @@ public class homeController {
             return;
         }
 
-        App.scene = new Scene(loadFXML("roletinha"), 700,441);
+        App.scene = new Scene(loadFXML("roletinha"), 569,400);
         Stage stage = new Stage();
         stage.setScene(App.scene);
         App.stages.add(stage);
