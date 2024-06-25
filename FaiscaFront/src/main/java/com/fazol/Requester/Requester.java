@@ -10,6 +10,7 @@ import com.fazol.Requester.RException.InvalidCpfException;
 import com.fazol.Requester.RException.InvalidDataException;
 import com.fazol.Requester.RException.InvalidEmailException;
 import com.fazol.Requester.RException.PermissionException;
+import com.fazol.Requester.RException.TooPoorException;
 import com.fazol.Requester.RException.UserNotFoundException;
 
 public abstract class Requester{
@@ -27,7 +28,7 @@ public abstract class Requester{
         return formBodyBuilder.toString();
     }
 
-    public abstract Object makeRequest(List<String> arguments) throws InvalidEmailException, 
+    public abstract Object makeRequest(List<String> arguments) throws InvalidEmailException, TooPoorException,
     PermissionException, UserNotFoundException, InvalidCpfException, InvalidDataException, IOException;
 
 }
