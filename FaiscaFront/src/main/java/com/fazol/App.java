@@ -17,6 +17,7 @@ public class App extends Application {
 
     static Scene scene;
     static List<Stage> stages = new ArrayList<Stage>(10);
+    static Long userId;
     static Account conta;
 
     @Override
