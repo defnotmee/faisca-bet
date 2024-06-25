@@ -3,11 +3,16 @@ com/fazol/roletinhaController.class
 com/fazol/App.class
 com/fazol/Requester/RequesterRegister.class
 com/fazol/Requester/RequesterLogin.class
+com/fazol/Account.class
 module-info.class
+com/fazol/bombsController.class
+com/fazol/Requester/RException/InvalidDataException.class
 com/fazol/homeController.class
 com/fazol/registerController.class
 com/fazol/Requester/RException/UserNotFoundException.class
+com/fazol/depositController.class
 com/fazol/Requester/RException/InvalidEmailException.class
 com/fazol/Requester/RException/PermissionException.class
 com/fazol/Requester/RException/InvalidCpfException.class
+com/fazol/Requester/RequesterInfo.class
 com/fazol/Requester/Requester.class

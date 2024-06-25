@@ -1,6 +1,7 @@
 package com.fazol;
 
 import java.net.URL;
+import javafx.event.ActionEvent;
 import java.time.Duration;
 import java.util.ResourceBundle;
 
@@ -11,20 +12,20 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
 
-public class roletinhaController implements Initializable
+public class roletinhaController
 {
 	@FXML
 	private ImageView myImage;
 	
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1)
+	@FXML
+	public void roda(ActionEvent event)
 	{
 		RotateTransition rotate = new RotateTransition();
 		rotate.setNode(myImage);
 		rotate.setByAngle(360);
 		rotate.setInterpolator(Interpolator.LINEAR);
 		rotate.setCycleCount(10);
-		rotate.setDuration(Duration.millis(1000));
+		//rotate.setDuration(Duration.millis(1000));
 		rotate.play();
 	}
 }
