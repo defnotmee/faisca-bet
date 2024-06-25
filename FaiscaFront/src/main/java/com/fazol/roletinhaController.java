@@ -41,25 +41,17 @@ public class roletinhaController {
 
 	@FXML
 	void red(ActionEvent event) {
-		TranslateTransition translate = new TranslateTransition();
-		translate.setNode(myImage);
-		translate.setByX(100);
-		translate.setByY(100);
-		translate.setDuration(Duration.millis(1000));
-		translate.setInterpolator(Interpolator.LINEAR);
-		translate.setCycleCount(1);
-		translate.play();
+		roda(Cor.VERMELHO);
 	}
 
 	@FXML
 	void white(ActionEvent event) {
-		RotateTransition rotate = new RotateTransition();
-		rotate.setNode(myImage);
-		rotate.setDuration(Duration.millis(1000));
-		rotate.setInterpolator(Interpolator.LINEAR);
-		rotate.setCycleCount(1);
-		rotate.play();	
+		roda(Cor.BRANCO);
+	}
 
+	@FXML
+	void black(ActionEvent event) {
+		roda(Cor.PRETO);
 	}
 
 
@@ -68,31 +60,37 @@ public class roletinhaController {
 	void roda(Cor cor){
 		switch (cor) {
 			case BRANCO:
-			RotateTransition rotate = new RotateTransition();
-				rotate.setNode(myImage);
-				rotate.setDuration(Duration.millis(1000));
-				rotate.setInterpolator(Interpolator.LINEAR);
-				rotate.setCycleCount(1);
-				rotate.play();	
+				RotateTransition rotateBranco = new RotateTransition();
+				rotateBranco.setNode(myImage);
+				rotateBranco.setDuration(Duration.millis(1000));
+				rotateBranco.setInterpolator(Interpolator.LINEAR);
+				rotateBranco.setCycleCount(5);
+				rotateBranco.setByAngle(180);
+				rotateBranco.play();	
 				break;
 			
 			case PRETO:
-				
+				RotateTransition rotateP = new RotateTransition();
+				rotateP.setNode(myImage);
+				rotateP.setDuration(Duration.millis(1000));
+				rotateP.setInterpolator(Interpolator.LINEAR);
+				rotateP.setCycleCount(5);
+				rotateP.setByAngle(360);
+				rotateP.play();	
 				break;
 
 			case VERMELHO:
-
+				RotateTransition rotate = new RotateTransition();
+				rotate.setNode(myImage);
+				rotate.setDuration(Duration.millis(1000));
+				rotate.setInterpolator(Interpolator.LINEAR);
+				rotate.setCycleCount(5);
+				rotate.setByAngle(360);
+				rotate.play();	
 				break;
 				
 			default:
 				break;
 		}
-		RotateTransition rotate = new RotateTransition();
-		rotate.setNode(myImage);
-		rotate.setByAngle(360);
-		rotate.setInterpolator(Interpolator.LINEAR);
-		rotate.setCycleCount(10);
-		//rotate.setDuration(Duration.millis(1000));
-		rotate.play();
 	}
 }
