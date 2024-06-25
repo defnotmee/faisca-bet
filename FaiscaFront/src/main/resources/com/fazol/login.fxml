@@ -11,26 +11,30 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="441.0" prefWidth="700.0" style="-fx-background-color: #1c1b1c;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fazol.loginController">
    <children>
-      <PasswordField fx:id="password" layoutX="475.0" layoutY="296.0" promptText="Senha" />
-      <Button fx:id="loginButton" layoutX="490.0" layoutY="333.0" mnemonicParsing="false" onAction="#tentarLogin" prefWidth="118.0" text="Entrar" textAlignment="CENTER" />
-      <TextField fx:id="username" layoutX="475.0" layoutY="266.0" promptText="Email" />
+      <PasswordField fx:id="password" layoutX="474.0" layoutY="211.0" promptText="Senha" />
+      <Button fx:id="loginButton" layoutX="501.0" layoutY="253.0" mnemonicParsing="false" onAction="#tentarLogin" prefWidth="118.0" text="Entrar" textAlignment="CENTER" />
+      <TextField fx:id="username" layoutX="474.0" layoutY="177.0" promptText="Email" />
+      <TextField layoutX="474.0" layoutY="377.0" />
       <Text fill="#fc0303" layoutX="262.0" layoutY="406.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seu usuário não foi encontrado" visible="false" />
       <Text fill="#fc0303" layoutX="305.0" layoutY="406.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Senha Incorreta" visible="false" />
-      <Button fx:id="signInButton" layoutX="510.0" layoutY="367.0" mnemonicParsing="false" onAction="#signIn" text="Registrar-se" />
+      <Button fx:id="signInButton" layoutX="510.0" layoutY="294.0" mnemonicParsing="false" onAction="#signIn" text="Registrar-se" />
       <ImageView fx:id="LOGO" fitHeight="449.0" fitWidth="449.0" layoutX="-34.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/logo_faisca.png" />
          </image>
       </ImageView>
-      <Text fill="#dfbfbf" layoutX="450.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bem Vindo!" textAlignment="CENTER">
+      <Text fill="#dfbfbf" layoutX="442.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bem Vindo!" textAlignment="CENTER">
          <font>
             <Font name="Times New Roman" size="40.0" />
          </font>
       </Text>
-      <Text fill="#dfc4c4" layoutX="427.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Juntos fazendo seu futuro!">
+      <Text fill="#dfc4c4" layoutX="442.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A faisca na sua carteira">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text fill="#dfc4c4" layoutX="478.0" layoutY="362.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ip do Servidor:" wrappingWidth="163.7294921875" />
+      <Button layoutX="521.0" layoutY="409.0" mnemonicParsing="false" text="Atualizar" />
    </children>
 </AnchorPane>
