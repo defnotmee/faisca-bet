@@ -1,6 +1,8 @@
 package com.fazol;
 
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -56,9 +58,7 @@ public class loginController {
     @FXML
     void tentarLogin(ActionEvent event) throws IOException{
 
-        if (!App.getServerIp().equals("localhost")){
-            ipServerBox.setText(App.getServerIp());
-        }
+        
 
         if (ipServerBox.getText().isEmpty()){
             Alert alert = new Alert(AlertType.ERROR);
@@ -169,4 +169,10 @@ public class loginController {
         return fxmlLoader.load();
     }
 
+    @FXML
+    public void initialize(){
+        if (!App.getServerIp().equals("vinicial")){
+            ipServerBox.setText(App.getServerIp());
+        }
+    }
 }
