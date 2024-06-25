@@ -41,7 +41,7 @@ public class RequesterInfo extends Requester{
 
         mp.put("id", arguments.get(0));
 
-        String serviceUrl = "http://localhost:8080/faisca-api/info";
+        String serviceUrl = getAddress("faisca-api/info");
             
         HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create(serviceUrl))

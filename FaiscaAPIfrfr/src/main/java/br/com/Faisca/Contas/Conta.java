@@ -9,7 +9,7 @@ public abstract class Conta implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	final private String nome;
-	private byte[] hashSenha;
+	final private byte[] hashSenha;
 	final private Long id;
 	
 	protected Conta(String nome, String senha) {

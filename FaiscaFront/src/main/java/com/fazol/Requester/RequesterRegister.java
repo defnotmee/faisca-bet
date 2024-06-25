@@ -44,7 +44,7 @@ public class RequesterRegister extends Requester{
             mp.put("cpf", arguments.get(3));
         }
 
-        String serviceUrl = "http://localhost:8080/faisca-api/register";
+        String serviceUrl = getAddress("faisca-api/register");
             
         HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create(serviceUrl))

@@ -6,6 +6,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Map;
 
+import com.fazol.App;
 import com.fazol.Requester.RException.InvalidCpfException;
 import com.fazol.Requester.RException.InvalidDataException;
 import com.fazol.Requester.RException.InvalidEmailException;
@@ -26,6 +27,10 @@ public abstract class Requester{
             formBodyBuilder.append(URLEncoder.encode(singleEntry.getValue(), StandardCharsets.UTF_8));
         }
         return formBodyBuilder.toString();
+    }
+
+    protected static String getAddress(String page) {
+        return "http://" + App.serverIp + ":8080/" + page;
     }
 
     public abstract Object makeRequest(List<String> arguments) throws InvalidEmailException, TooPoorException,

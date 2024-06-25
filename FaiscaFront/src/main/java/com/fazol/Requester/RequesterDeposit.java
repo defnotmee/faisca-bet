@@ -9,39 +9,39 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.fazol.Requester.RException.InvalidEmailException;
-import com.fazol.Requester.RException.PermissionException;
+import com.fazol.Requester.RException.InvalidDataException;
 import com.fazol.Requester.RException.UserNotFoundException;
-
-public class RequesterLogin extends Requester{
-    
-    RequesterLogin RequesterLogin(){
-        return new RequesterLogin();
-    }
-
+public class RequesterDeposit extends Requester{
     /**
      * Argumentos
-     *  arguments[0]: email do usuario
-     *  arguments[1]: senha do usuário
-     * 
+     *  arguments[0]: id do usuário
+     *  arguments[1]: qtd apostada
+     *  
      * Erros possíveis:
-     *  400: request inválida (provavelmente por email inválido)
-     *  401: não autorizado (senha errada)
-     *  404: não achado (não foi encontrado usuário com aquele email)
+     *  400: request inválida
+     *     - Quando não algum dos argumentos
+     *     - Quando os argumentos tem tipo inválido
+     *     - Quando a conta não tem dinheiro suficiente
+     *  404
+     *     
      * 
      * Retorno caso status code 200:
-     *  String com o Id do usuário (em Long)
-     */
+     *  "Depósito realizado com bônus" se houve bonus
+     *  "Depósito realizado sem bônus" se não houve bonus
+     * 
+     **/
+
     @Override
-    public Long makeRequest(List<String> arguments) throws InvalidEmailException, PermissionException, UserNotFoundException{
+    public Boolean makeRequest(List<String> arguments)  throws InvalidDataException, UserNotFoundException {
         HttpClient client = HttpClient.newHttpClient();
 
         Map<String,String> mp = new HashMap<>();
 
-        mp.put("email", arguments.get(0));
-        mp.put("senha", arguments.get(1));
+        mp.put("id", arguments.get(0));
+        mp.put("valor", arguments.get(1));
+        mp.put("senha", "EuAmoOSigmaBank");
 
-        String serviceUrl = getAddress("faisca-api/login");
+        String serviceUrl = getAddress("faisca-api/deposit");
             
         HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create(serviceUrl))
@@ -59,21 +59,18 @@ public class RequesterLogin extends Requester{
         
         String retorno = response.body();
         int statusCode = response.statusCode(); // tem que ser 200 se deu certo
-        
     
         switch(statusCode){
             case 400:
-                throw new InvalidEmailException(retorno);
-            case 401:
-                throw new PermissionException(retorno);
+                throw new InvalidDataException(retorno);
             case 404:
                 throw new UserNotFoundException(retorno);
-        }
+        }   
 
         if(statusCode != 200){
             return null;
         }
 
-        return Long.valueOf(retorno);
+        return retorno.equals("Depósito realizado com bônus");
     }
 }

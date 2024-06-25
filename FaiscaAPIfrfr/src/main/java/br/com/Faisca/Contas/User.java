@@ -2,6 +2,7 @@ package br.com.Faisca.Contas;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Arrays;
 
 public class User extends Conta implements Serializable{
 	
@@ -46,10 +47,11 @@ public class User extends Conta implements Serializable{
 
 	@Override
 	public boolean deposit(BigDecimal ammount){
-		boolean ret = isBonusAvailable();
+		boolean ret = false;
 		if(!alreadyDeposit && ammount.compareTo(new BigDecimal(100)) >= 0){
 			qtdBonus = qtdBonus.add(new BigDecimal(100));
 			setAlreadyDeposit(true);
+			ret = true;
 		}
 		qtdDeposit = qtdDeposit.add(ammount);
 		return ret;
@@ -60,7 +62,7 @@ public class User extends Conta implements Serializable{
 		return "{" +
 			"nome='" + super.getNome() + "'" +
 			", email='" + getEmail() + "'" +
-			", hashSenha='" + super.getHashSenha() + "'" +
+			", hashSenha='" + Arrays.toString(super.getHashSenha()) + "'" +
 			", accountId='" + super.getId() + "'" +
 			", alreadyDeposit='" + isAlreadyDeposit() + "'" +
 			", qtdBonus='" + getQtdBonus() + "'" +
@@ -94,7 +96,7 @@ public class User extends Conta implements Serializable{
 	}
 	
 	public static String imprimeCpf(String CPF) {
-		if(CPF == "null")
+		if(CPF.equals("null"))
 			return CPF;
         return(CPF.substring(0, 3) + "." + CPF.substring(3, 6) + "." +
         CPF.substring(6, 9) + "-" + CPF.substring(9, 11));

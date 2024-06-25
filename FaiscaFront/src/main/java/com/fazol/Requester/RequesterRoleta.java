@@ -39,7 +39,7 @@ public class RequesterRoleta extends Requester{
         mp.put("id", arguments.get(0));
         mp.put("valor", arguments.get(1));
         mp.put("cor", arguments.get(2));
-        String serviceUrl = "http://localhost:8080/faisca-api/jogos/roleta";
+        String serviceUrl = getAddress("faisca-api/jogos/roleta");
             
         HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create(serviceUrl))

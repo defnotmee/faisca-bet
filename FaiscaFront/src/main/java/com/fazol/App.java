@@ -18,6 +18,7 @@ public class App extends Application {
     static Scene scene;
     static List<Stage> stages = new ArrayList<Stage>(10);
     static Account conta;
+    public static String serverIp = "localhost";
 
     @Override
     public void start(Stage stage) throws IOException {

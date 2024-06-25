@@ -60,7 +60,6 @@ public class ServletDeposit extends FaiscaServlet {
 		if(!senha.equals("EuAmoOSigmaBank")) {
 			response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
 			return;
-			
 		}
 		
 		Conta cur = ContasDAO.getInstance(getContaPath()).accessId(id);
@@ -76,9 +75,9 @@ public class ServletDeposit extends FaiscaServlet {
 		System.out.println("Depositado na conta de " + cur.getNome() + ", novas informações: " + ((User) cur).toString());
 		
 		if(ret) {
-			response.getWriter().print("Depósito realizado com bônus.");
+			response.getWriter().print("Depósito realizado com bônus");
 		} else {
-			response.getWriter().print("Depósito realizado sem bônus.");
+			response.getWriter().print("Depósito realizado sem bônus");
 		}
 		
 		ContasDAO.getInstance(getContaPath()).persist();
