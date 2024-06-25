@@ -3,7 +3,6 @@ package com.fazol;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.util.Arrays;
-import java.util.concurrent.TimeUnit;
 
 import com.fazol.Requester.RException.InvalidDataException;
 import com.fazol.Requester.RException.TooPoorException;
@@ -51,7 +50,7 @@ public class roletinhaController {
 		App.stages.remove(App.stages.size()-1);
 	}
 
-	void generalSpin(String cor) throws InterruptedException{
+	void generalSpin(String cor){
 		try {
 			if (valorBet.getText().isEmpty() || Double.parseDouble(valorBet.getText()) <= 0) {
 				System.out.println("Valor inválido");
@@ -79,35 +78,22 @@ public class roletinhaController {
 		}
 
 		roda(Cor.valueOf(res));
-		TimeUnit.SECONDS.sleep(1);
 		initialize();
 	}
 
 	@FXML
 	void red(ActionEvent event) {
-		try {
-			generalSpin("VERMELHO");
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		generalSpin("VERMELHO");
 	}
 
 	@FXML
 	void white(ActionEvent event) {
-		try {
-			generalSpin("BRANCO");
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		generalSpin("BRANCO");
 	}
 
 	@FXML
 	void black(ActionEvent event) {
-		try {
-			generalSpin("PRETO");
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		generalSpin("PRETO");
 	}
 
 
