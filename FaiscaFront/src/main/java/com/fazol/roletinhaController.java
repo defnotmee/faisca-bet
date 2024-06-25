@@ -11,10 +11,14 @@ import javafx.fxml.FXML;
 import javafx.util.Duration;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 
 public class roletinhaController {
 	
+	@FXML
+	private TextField valorBet;
+
 	@FXML
     private Button blackButton;
 
@@ -41,7 +45,7 @@ public class roletinhaController {
 
 	@FXML
 	void red(ActionEvent event) {
-		
+	
 	}
 
 	@FXML

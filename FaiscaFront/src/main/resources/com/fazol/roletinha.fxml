@@ -64,7 +64,7 @@
             <Font size="20.0" />
          </font>
       </Button>
-      <TextField layoutX="248.0" layoutY="342.0" prefHeight="43.0" prefWidth="74.0" promptText="Valor" style="-fx-background-radius: 0;">
+      <TextField fx:id="valorBet" layoutX="248.0" layoutY="342.0" prefHeight="43.0" prefWidth="74.0" promptText="Valor" style="-fx-background-radius: 0;">
          <font>
             <Font size="20.0" />
          </font>
@@ -75,6 +75,6 @@
          </image>
       </ImageView>
       <Button fx:id="quitButton" layoutX="517.0" layoutY="17.0" mnemonicParsing="false" onAction="#quit" text="Quit" />
-      <Text layoutX="24.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Saldo:" />
+      <Text fx:id="saldo" fill="#d9bcbc" layoutX="24.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Saldo:" />
    </children>
 </AnchorPane>
