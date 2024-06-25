@@ -5,6 +5,7 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.time.Duration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -44,6 +45,7 @@ public class RequesterRoleta extends Requester{
         HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create(serviceUrl))
         .header("Content-Type", "application/x-www-form-urlencoded")
+        .timeout(Duration.ofSeconds(1))
         .POST(HttpRequest.BodyPublishers.ofString(getFormDataAsString(mp)))
         .build();
 
