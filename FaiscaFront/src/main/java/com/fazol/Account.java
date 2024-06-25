@@ -58,14 +58,10 @@ public class Account {
         RequesterInfo req = new RequesterInfo();
         try {
             String json = (String)req.makeRequest(Arrays.asList(getId().toString()));
-            Account cur = new Account(json);
-            cur.setBalance(cur.getBalance());
-            cur.setBonusAvailable(cur.getBonusAvailable());
+            App.conta = new Account(json);
         } catch (Exception e) {
             // Nunca vai entrar aqui
         }
-        
-
     }
     public boolean getBonusAvailable() {
         return this.bonusAvailable;

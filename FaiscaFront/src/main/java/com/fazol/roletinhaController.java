@@ -1,5 +1,7 @@
 package com.fazol;
 
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.Arrays;
 
 import com.fazol.Requester.RException.InvalidDataException;
@@ -76,6 +78,8 @@ public class roletinhaController {
 		}
 
 		roda(Cor.valueOf(res));
+
+		initialize();
 	}
 
 	@FXML
@@ -102,7 +106,7 @@ public class roletinhaController {
 			case BRANCO:
 				RotateTransition rotateBranco = new RotateTransition();
 				rotateBranco.setNode(myImage);
-				rotateBranco.setDuration(Duration.millis(5000));
+				rotateBranco.setDuration(Duration.millis(1000));
 				rotateBranco.setInterpolator(Interpolator.LINEAR);
 				rotateBranco.setCycleCount(1);
 				rotateBranco.setByAngle(1800);
@@ -112,7 +116,7 @@ public class roletinhaController {
 			case PRETO:
 				RotateTransition rotateP = new RotateTransition();
 				rotateP.setNode(myImage);
-				rotateP.setDuration(Duration.millis(5000));
+				rotateP.setDuration(Duration.millis(1000));
 				rotateP.setInterpolator(Interpolator.LINEAR);
 				rotateP.setCycleCount(1);
 				rotateP.setByAngle(1800-98);
@@ -122,7 +126,7 @@ public class roletinhaController {
 			case VERMELHO:
 				RotateTransition rotate = new RotateTransition();
 				rotate.setNode(myImage);
-				rotate.setDuration(Duration.millis(5000));
+				rotate.setDuration(Duration.millis(1000));
 				rotate.setInterpolator(Interpolator.LINEAR);
 				rotate.setCycleCount(1);
 				rotate.setByAngle(1800 + 98);
@@ -132,5 +136,23 @@ public class roletinhaController {
 			default:
 				break;
 		}
+		
 	}
+
+	@FXML
+    public void initialize(){
+        App.conta.refresh();
+        BigDecimal bd = App.conta.getBalance().setScale(2, BigDecimal.ROUND_DOWN);
+
+        DecimalFormat df = new DecimalFormat();
+                    
+        df.setMaximumFractionDigits(2);
+                    
+        df.setMinimumFractionDigits(2);
+                    
+        df.setGroupingUsed(false);
+
+        String result = df.format(bd);
+        saldo.setText("Saldo: R$" + result);
+    }
 }
