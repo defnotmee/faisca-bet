@@ -16,35 +16,35 @@
          <children>
             <AnchorPane layoutX="6.0" prefHeight="374.0" prefWidth="411.0">
                <children>
-                  <ImageView fitHeight="281.0" fitWidth="330.0" layoutX="61.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="281.0" fitWidth="330.0" layoutX="65.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/UserIcon.png" />
                      </image>
                   </ImageView>
-                  <Text fx:id="username" layoutX="115.0" layoutY="321.0" strokeType="OUTSIDE" strokeWidth="0.0" text="username">
+                  <Text fx:id="username" layoutX="105.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="username" textAlignment="CENTER">
                      <font>
                         <Font size="40.0" />
                      </font></Text>
                </children></AnchorPane>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="35.0" layoutX="1.0" layoutY="350.0" stroke="BLACK" strokeType="INSIDE" width="419.0" />
-            <Button fx:id="logOutButton" layoutX="69.0" layoutY="988.0" mnemonicParsing="false" onAction="#logOut" prefHeight="79.0" prefWidth="261.0" style="-fx-background-color: #436894;" text="Sair">
+            <Button fx:id="logOutButton" layoutX="69.0" layoutY="975.0" mnemonicParsing="false" onAction="#logOut" prefHeight="79.0" prefWidth="261.0" style="-fx-background-color: #436894;" text="Sair">
                <font>
                   <Font size="39.0" />
                </font></Button>
-            <Text fx:id="Saldo" layoutX="52.0" layoutY="454.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Saldo: " wrappingWidth="192.17302703857422">
+            <Text fx:id="Saldo" layoutX="13.0" layoutY="461.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Saldo: " wrappingWidth="396.1730270385742">
                <font>
                   <Font size="40.0" />
                </font></Text>
-            <Button fx:id="openConfigsButton" layoutX="22.0" layoutY="905.0" mnemonicParsing="false" onAction="#openConfig" prefHeight="82.0" prefWidth="354.0" style="-fx-background-color: #436894;" text="Configurações">
+            <Button fx:id="openConfigsButton" layoutX="13.0" layoutY="893.0" mnemonicParsing="false" onAction="#openConfig" prefHeight="82.0" prefWidth="376.0" style="-fx-background-color: #436894;" text="Atualizar Dados">
                <font>
                   <Font size="39.0" />
                </font></Button>
-            <Button fx:id="saqueButton" layoutX="21.0" layoutY="584.0" mnemonicParsing="false" onAction="#trySaque" prefHeight="82.0" prefWidth="354.0" style="-fx-background-color: #436894;" text="Saques">
+            <Button fx:id="saqueButton" layoutX="37.0" layoutY="594.0" mnemonicParsing="false" onAction="#trySaque" prefHeight="82.0" prefWidth="327.0" style="-fx-background-color: #436894;" text="Saques" textAlignment="CENTER">
                <font>
                   <Font size="39.0" />
                </font>
             </Button>
-            <Button fx:id="depositButton" layoutX="29.0" layoutY="666.0" mnemonicParsing="false" onAction="#tryDeposito" prefHeight="82.0" prefWidth="354.0" style="-fx-background-color: #436894;" text="Depósitos">
+            <Button fx:id="depositButton" layoutX="36.0" layoutY="694.0" mnemonicParsing="false" onAction="#tryDeposito" prefHeight="82.0" prefWidth="327.0" style="-fx-background-color: #436894;" text="Depósitos" textAlignment="CENTER">
                <font>
                   <Font size="39.0" />
                </font>

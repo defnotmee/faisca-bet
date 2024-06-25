@@ -84,23 +84,25 @@ public class homeController {
 
     @FXML
     void openConfig(ActionEvent event) throws IOException {
-        if (App.stages.size() > 2){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Erro");
-            alert.setHeaderText("Não se pode abrir mais de 2 janelas ao mesmo tempo");
-            alert.setContentText("Por favor, feche uma das janelas abertas para poder abrir uma nova!");
-            alert.showAndWait();
-            return;
-        }
+        // if (App.stages.size() > 2){
+        //     Alert alert = new Alert(Alert.AlertType.ERROR);
+        //     alert.setTitle("Erro");
+        //     alert.setHeaderText("Não se pode abrir mais de 2 janelas ao mesmo tempo");
+        //     alert.setContentText("Por favor, feche uma das janelas abertas para poder abrir uma nova!");
+        //     alert.showAndWait();
+        //     return;
+        // }
 
-        App.scene = new Scene(loadFXML("config"), 700,441);
-        App.stages.get(0).close();
-        App.stages.remove(0);
-        Stage stage = new Stage();
+        // App.scene = new Scene(loadFXML("config"), 700,441);
+        // App.stages.get(0).close();
+        // App.stages.remove(0);
+        // Stage stage = new Stage();
 
-        stage.setScene(App.scene);
-        App.stages.add(stage);
-        stage.show();
+        // stage.setScene(App.scene);
+        // App.stages.add(stage);
+        // stage.show();
+        
+        initialize();
     }
 
     private static Parent loadFXML(String fxml) throws IOException {
@@ -138,6 +140,7 @@ public class homeController {
 
     @FXML
     public void initialize(){
+        App.conta.refresh();
         username.setText(App.conta.getNome());
         BigDecimal bd = App.conta.getBalance().setScale(2, BigDecimal.ROUND_DOWN);
 
