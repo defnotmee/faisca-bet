@@ -1,8 +1,6 @@
 package br.com.FaiscaAPI;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.ObjectInputStream;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,7 +13,6 @@ import org.apache.catalina.tribes.util.Arrays;
 import br.com.Faisca.Contas.Conta;
 import br.com.Faisca.Contas.ContasDAO;
 import br.com.Faisca.Contas.Hasher;
-import br.com.Faisca.Contas.User;
 
 /**
  * Parâmetros: email (email do usuário), senha (senha do usuário)

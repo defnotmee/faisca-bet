@@ -107,19 +107,10 @@ public class User extends Conta implements Serializable{
 		return this.cpf;
 	}
 	
-	
-
-	private void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-
 	@Override
 	public String getEmail() {
 		return this.email;
 	}
 
-	private void setEmail(String email) {
-		this.email = email;
-	}
 
 }

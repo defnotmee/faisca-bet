@@ -1,7 +1,6 @@
 package br.com.FaiscaAPI;
 
 import java.io.IOException;
-import java.math.BigDecimal;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,9 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.Faisca.Contas.Conta;
-import br.com.Faisca.Contas.ContasDAO;
-import br.com.Faisca.Contas.User;
 
 /**
  * Da um erro pois não vamos deixar o cara sacar (a não ser que integremos com o sigma bank)
