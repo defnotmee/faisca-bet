@@ -56,6 +56,10 @@ public class loginController {
     @FXML
     void tentarLogin(ActionEvent event) throws IOException{
 
+        if (!App.getServerIp().equals("localhost")){
+            ipServerBox.setText(App.getServerIp());
+        }
+
         if (ipServerBox.getText().isEmpty()){
             Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("Erro");
@@ -64,7 +68,7 @@ public class loginController {
             alert.showAndWait();
             return;
         }
-        
+
         App.setServerIp(ipServerBox.getText());
 
 
