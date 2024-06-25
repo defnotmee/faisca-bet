@@ -67,6 +67,8 @@ public class loginController {
                 arguments.add(password.getText());
 
                 if (username.getText().equals("A") && password.getText().equals("A")){
+                    App.conta = new Account();
+                    
                     App.scene = new Scene(loadFXML("home"), 1960,1080);
                     App.stages.get(0).close();
                     App.stages.remove(0);
@@ -140,7 +142,7 @@ public class loginController {
                 stage.show();
         }
     }
-
+    
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();

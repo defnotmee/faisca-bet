@@ -1,6 +1,8 @@
 package com.fazol;
 
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -132,5 +134,22 @@ public class homeController {
         App.stages.add(stage);
         stage.show();
 
+    }
+
+    @FXML
+    public void initialize(){
+        username.setText(App.conta.getNome());
+        BigDecimal bd = App.conta.getBalance().setScale(2, BigDecimal.ROUND_DOWN);
+
+        DecimalFormat df = new DecimalFormat();
+                    
+        df.setMaximumFractionDigits(2);
+                    
+        df.setMinimumFractionDigits(2);
+                    
+        df.setGroupingUsed(false);
+
+        String result = df.format(bd);
+        Saldo.setText("Saldo: R$" + result);
     }
 }

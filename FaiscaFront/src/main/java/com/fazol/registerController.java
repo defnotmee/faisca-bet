@@ -108,8 +108,6 @@ public class registerController {
                 alert.setContentText("Por favor, verifique se a senha está correta");
                 alert.showAndWait();
             }
-
-            App.userId = response;
             App.setRoot("login");
         }
     }

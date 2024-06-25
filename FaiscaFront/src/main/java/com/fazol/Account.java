@@ -18,6 +18,11 @@ public class Account {
     BigDecimal balance;
 
     public Account() {
+        nome = "Admin";
+        id = Long.valueOf("-2894575177183267944");
+        email = "admin@admin.com";
+        bonusAvailable = false;
+        balance = new BigDecimal(1100);
     }
     
     Account(String json) {
