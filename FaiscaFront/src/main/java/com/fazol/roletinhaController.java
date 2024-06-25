@@ -24,7 +24,7 @@ public class roletinhaController implements Initializable
 		rotate.setByAngle(360);
 		rotate.setInterpolator(Interpolator.LINEAR);
 		rotate.setCycleCount(10);
-		rotate.setDuration(Duration.millis(1000));
+		//rotate.setDuration(Duration.millis(1000));
 		rotate.play();
 	}
 }
