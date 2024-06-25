@@ -2,6 +2,7 @@ package com.fazol;
 
 import java.math.BigDecimal;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -40,7 +41,7 @@ public class Account {
             if (node.has("balance")) {
                 this.balance = new BigDecimal(node.get("balance").asDouble());
             }
-        } catch (Exception e) {
+        } catch (JsonProcessingException e) {
             System.out.println("Fudeu! Não era pra entrar aqui");
         }
         
@@ -49,52 +50,21 @@ public class Account {
     public String getNome() {
         return this.nome;
     }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
     public Long getId() {
         return this.id;
     }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public String getCpf() {
         return this.cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
     }
 
     public String getEmail() {
         return this.email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public boolean isBonusAvailable() {
         return this.bonusAvailable;
     }
-
-    public boolean getBonusAvailable() {
-        return this.bonusAvailable;
-    }
-
-    public void setBonusAvailable(boolean bonusAvailable) {
-        this.bonusAvailable = bonusAvailable;
-    }
-
     public BigDecimal getBalance() {
         return this.balance;
-    }
-
-    public void setBalance(BigDecimal balance) {
-        this.balance = balance;
     }
 }
