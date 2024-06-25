@@ -62,19 +62,6 @@ public class Account {
         
 
     }
-    private void setNome(String nome) {
-        this.nome = nome;
-    }
-    private void setId(Long id) {
-        this.id = id;
-    }
-    private void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-    private void setEmail(String email) {
-        this.email = email;
-    }
-
     public boolean getBonusAvailable() {
         return this.bonusAvailable;
     }
