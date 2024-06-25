@@ -1,7 +1,7 @@
 # Lê id, senha secreta e quantidade para fazer deposito
 
 import requests
-URL = "http://localhost:8080/faisca-api/info"
+URL = "http://192.168.33.251:8080/faisca-api/info"
 
 PARAMS = dict()
 
