@@ -1,10 +1,12 @@
 package com.fazol;
 
 import java.math.BigDecimal;
+import java.util.Arrays;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fazol.Requester.RequesterInfo;
 
 public class Account {
     
@@ -45,6 +47,43 @@ public class Account {
             System.out.println("Fudeu! Não era pra entrar aqui");
         }
         
+    }
+
+    public void refresh(){
+        RequesterInfo req = new RequesterInfo();
+        try {
+            String json = (String)req.makeRequest(Arrays.asList(getId().toString()));
+            Account cur = new Account(json);
+            cur.setBalance(cur.getBalance());
+            cur.setBonusAvailable(cur.getBonusAvailable());
+        } catch (Exception e) {
+            // Nunca vai entrar aqui
+        }
+        
+
+    }
+    private void setNome(String nome) {
+        this.nome = nome;
+    }
+    private void setId(Long id) {
+        this.id = id;
+    }
+    private void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+    private void setEmail(String email) {
+        this.email = email;
+    }
+
+    public boolean getBonusAvailable() {
+        return this.bonusAvailable;
+    }
+
+    public void setBonusAvailable(boolean bonusAvailable) {
+        this.bonusAvailable = bonusAvailable;
+    }
+    public void setBalance(BigDecimal balance) {
+        this.balance = balance;
     }
 
     public String getNome() {
