@@ -12,14 +12,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
 
-public class roletinhaController
-{
+public class roletinhaController {
 	@FXML
 	private ImageView myImage;
 	
 	@FXML
-	public void roda(ActionEvent event)
-	{
+	void roda(ActionEvent event){
 		RotateTransition rotate = new RotateTransition();
 		rotate.setNode(myImage);
 		rotate.setByAngle(360);
