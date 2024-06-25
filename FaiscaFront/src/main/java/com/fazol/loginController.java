@@ -45,12 +45,19 @@ public class loginController {
     private Button signInButton;
 
     @FXML
+    private TextField ipServerBox;
+
+    @FXML
     private void signIn(ActionEvent event) throws IOException{
+        App.setServerIp(ipServerBox.getText());
         App.setRoot("signIn");
     }
 
     @FXML
     void tentarLogin(ActionEvent event) throws IOException{
+
+        App.setServerIp(ipServerBox.getText());
+
         if (username.getText().isEmpty() || password.getText().isEmpty()) {
             Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("Erro");

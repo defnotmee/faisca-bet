@@ -18,7 +18,7 @@ public class App extends Application {
     static Scene scene;
     static List<Stage> stages = new ArrayList<Stage>(10);
     static Account conta;
-    public static String serverIp = "192.168.33.251";
+    private static String serverIp = "localhost";
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -35,6 +35,14 @@ public class App extends Application {
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
+    }
+
+    static public String getServerIp(){
+        return serverIp;
+    }
+
+    static public void setServerIp(String s){
+        serverIp = s;
     }
 
     public static void main(String[] args) {

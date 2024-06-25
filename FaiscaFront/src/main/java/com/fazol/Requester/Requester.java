@@ -30,7 +30,7 @@ public abstract class Requester{
     }
 
     protected static String getAddress(String page) {
-        return "http://" + App.serverIp + ":8080/" + page;
+        return "http://" + App.getServerIp() + ":8080/" + page;
     }
 
     public abstract Object makeRequest(List<String> arguments) throws InvalidEmailException, TooPoorException,
