@@ -1,5 +1,7 @@
 package com.fazol;
 
+import com.fazol.Account;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -77,7 +79,7 @@ public class loginController {
                     return;
                 }
 
-                Long response = null;
+                Object response = 0;
 
                 RequesterLogin requesterLogin = new RequesterLogin();
 
@@ -115,7 +117,8 @@ public class loginController {
                     alert.showAndWait();
                     return;
                 }
-                App.userId = response;
+
+                App.conta = new Account((String) response);
 
                 
                 App.scene = new Scene(loadFXML("home"), 1960,1080);
