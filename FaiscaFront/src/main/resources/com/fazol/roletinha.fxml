@@ -39,6 +39,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="569.0" style="-fx-background-color: #00008B;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fazol.roletinhaController">
    <children>
@@ -48,17 +49,17 @@
          </image>
       </ImageView>
       <ButtonBar layoutX="245.0" layoutY="328.0" prefHeight="40.0" prefWidth="65.0" />
-      <Button layoutX="150.0" layoutY="283.0" mnemonicParsing="false" style="-fx-background-color: white; -fx-background-radius: 10px;" text="White" textOverrun="CENTER_ELLIPSIS">
+      <Button fx:id="whiteButton" layoutX="150.0" layoutY="283.0" mnemonicParsing="false" onAction="#white" style="-fx-background-color: white; -fx-background-radius: 10px;" text="White" textOverrun="CENTER_ELLIPSIS">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button graphicTextGap="20.0" layoutX="249.0" layoutY="283.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="73.0" style="-fx-background-color: red; -fx-background-radius: 10px; -fx-text-fill: white;" text="Red " textOverrun="CENTER_ELLIPSIS">
+      <Button fx:id="redButton" graphicTextGap="20.0" layoutX="249.0" layoutY="283.0" mnemonicParsing="false" onAction="#red" prefHeight="43.0" prefWidth="80.0" style="-fx-background-color: red; -fx-background-radius: 10px; -fx-text-fill: white;" text="Red " textOverrun="CENTER_ELLIPSIS">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button layoutX="341.0" layoutY="283.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="83.0" style="-fx-background-color: black; -fx-background-radius: 10px; -fx-text-fill: white;" text="Black" textOverrun="CENTER_ELLIPSIS">
+      <Button fx:id="blackButton" layoutX="341.0" layoutY="283.0" mnemonicParsing="false" onAction="#black" prefHeight="39.0" prefWidth="83.0" style="-fx-background-color: black; -fx-background-radius: 10px; -fx-text-fill: white;" text="Black" textOverrun="CENTER_ELLIPSIS">
          <font>
             <Font size="20.0" />
          </font>
@@ -68,10 +69,12 @@
             <Font size="20.0" />
          </font>
       </TextField>
-      <ImageView fitHeight="69.0" fitWidth="45.0" layoutX="263.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true" smooth="false">
+      <ImageView fx:id="spinImage" fitHeight="69.0" fitWidth="45.0" layoutX="263.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true" smooth="false">
          <image>
             <Image url="@images/spin.png" />
          </image>
       </ImageView>
+      <Button fx:id="quitButton" layoutX="517.0" layoutY="17.0" mnemonicParsing="false" onAction="#quit" text="Quit" />
+      <Text layoutX="24.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Saldo:" />
    </children>
 </AnchorPane>
