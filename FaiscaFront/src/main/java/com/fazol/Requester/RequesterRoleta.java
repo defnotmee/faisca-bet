@@ -62,8 +62,12 @@ public class RequesterRoleta extends Requester{
         
     
         switch(statusCode){
-            case 400:
+            case 400:{
+                System.err.println("Retornou " + retorno);
+                if(retorno.equals("Dinheiro insuficiente"))
+                    throw new TooPoorException(retorno);
                 throw new InvalidDataException(retorno);
+            }
         }
 
         if(statusCode != 200){

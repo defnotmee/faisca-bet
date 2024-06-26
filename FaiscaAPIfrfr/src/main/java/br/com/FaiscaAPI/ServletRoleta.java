@@ -44,7 +44,7 @@ public class ServletRoleta extends FaiscaServlet {
 			System.err.println("Usuário tentou roletar sem a informação necessária");
 			
 			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-			response.getWriter().print("Sem todos os parametros necessários.");
+			response.getWriter().print("Sem todos os parametros necessários");
 			return;
 		}
 		
@@ -69,7 +69,7 @@ public class ServletRoleta extends FaiscaServlet {
 			System.err.println("Usuário tentou roletar com id inexistente");
 			
 			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-			response.getWriter().print("Id não existe.");
+			response.getWriter().print("Id não existe");
 			return;
 		}
 		
@@ -77,7 +77,7 @@ public class ServletRoleta extends FaiscaServlet {
 			System.err.println("Usuário tentou roletar sem dinheiro");
 			
 			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-			response.getWriter().print("Dinheiro insuficiente.");
+			response.getWriter().print("Dinheiro insuficiente");
 			return;
 		}
 		
