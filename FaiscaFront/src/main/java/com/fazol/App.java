@@ -19,6 +19,7 @@ public class App extends Application {
     static List<Stage> stages = new ArrayList<Stage>(10);
     static Account conta;
     private static String serverIp = "vinicial";
+    static int windowLimit = 10;
 
     @Override
     public void start(Stage stage) throws IOException {

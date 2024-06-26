@@ -50,7 +50,7 @@ public class homeController {
 
     @FXML
     void tryDeposito(ActionEvent event) throws IOException {
-        if (App.stages.size() == 2){
+        if (App.stages.size() == App.windowLimit){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Erro");
             alert.setHeaderText("Não se pode abrir mais de 2 janelas ao mesmo tempo");
@@ -118,10 +118,10 @@ public class homeController {
 
     @FXML
     void startRoleta(ActionEvent event) throws IOException {
-        if (App.stages.size() == 2){
+        if (App.stages.size() == App.windowLimit){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Erro");
-            alert.setHeaderText("Não se pode abrir mais de 2 janelas ao mesmo tempo");
+            alert.setHeaderText("Não se pode abrir mais de " + String.valueOf(App.windowLimit) + " janelas ao mesmo tempo");
             alert.setContentText("Por favor, feche uma das janelas abertas para poder abrir uma nova!");
             alert.showAndWait();
             return;
